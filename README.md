@@ -56,7 +56,7 @@ console.log(msg.ref());
 
 ## Api
 
-### [DOC](https://github.com/sewerganger/win-win/docs)
+### [DOCS](https://sewerganger.github.io/win-win/)
 
 ## Notice
 
