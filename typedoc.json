@@ -1,0 +1,9 @@
+{
+	"out": "docs",
+	"mode": "modules",
+	"exclude": [
+		"lib/utils",
+		"lib/**/index.ts",
+		"lib/win_fns.ts"
+	]
+}

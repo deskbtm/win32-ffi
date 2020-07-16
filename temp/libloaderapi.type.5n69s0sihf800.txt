@@ -1,0 +1,30 @@
+export interface WinUserFns extends TsWin32Fns {
+AddDllDirectory:(NewDirectory:PCWSTR)=> DLL_DIRECTORY_COOKIE;
+DisableThreadLibraryCalls:(hLibModule:HMODULE)=> BOOL;
+EnumResourceLanguagesExA:(hModule:HMODULE,lpType:LPCSTR,lpName:LPCSTR,lpEnumFunc:ENUMRESLANGPROCA,lParam:LONG_PTR,dwFlags:DWORD,LangId:LANGID)=> BOOL;
+EnumResourceLanguagesExW:(hModule:HMODULE,lpType:LPCWSTR,lpName:LPCWSTR,lpEnumFunc:ENUMRESLANGPROCW,lParam:LONG_PTR,dwFlags:DWORD,LangId:LANGID)=> BOOL;
+EnumResourceNamesExA:(hModule:HMODULE,lpType:LPCSTR,lpEnumFunc:ENUMRESNAMEPROCA,lParam:LONG_PTR,dwFlags:DWORD,LangId:LANGID)=> BOOL;
+EnumResourceNamesExW:(hModule:HMODULE,lpType:LPCWSTR,lpEnumFunc:ENUMRESNAMEPROCW,lParam:LONG_PTR,dwFlags:DWORD,LangId:LANGID)=> BOOL;
+EnumResourceTypesExA:(hModule:HMODULE,lpEnumFunc:ENUMRESTYPEPROCA,lParam:LONG_PTR,dwFlags:DWORD,LangId:LANGID)=> BOOL;
+EnumResourceTypesExW:(hModule:HMODULE,lpEnumFunc:ENUMRESTYPEPROCW,lParam:LONG_PTR,dwFlags:DWORD,LangId:LANGID)=> BOOL;
+FindStringOrdinal:(dwFindStringOrdinalFlags:DWORD,lpStringSource:LPCWSTR,cchSource:INT,lpStringValue:LPCWSTR,cchValue:INT,bIgnoreCase:BOOL)=> INT;
+FreeLibrary:(hLibModule:HMODULE)=> BOOL;
+FreeLibraryAndExitThread:(hLibModule:HMODULE,dwExitCode:DWORD)=> VOID;
+FreeResource:(hResData:HGLOBAL)=> BOOL;
+GetModuleFileNameA:(hModule:HMODULE,lpFilename:LPSTR,nSize:DWORD)=> DWORD;
+GetModuleFileNameW:(hModule:HMODULE,lpFilename:LPWSTR,nSize:DWORD)=> DWORD;
+GetModuleHandleA:(lpModuleName:LPCSTR)=> HMODULE;
+GetModuleHandleExA:(dwFlags:DWORD,lpModuleName:LPCSTR,*phModule:HMODULE)=> BOOL;
+GetModuleHandleExW:(dwFlags:DWORD,lpModuleName:LPCWSTR,*phModule:HMODULE)=> BOOL;
+GetModuleHandleW:(lpModuleName:LPCWSTR)=> HMODULE;
+GetProcAddress:(hModule:HMODULE,lpProcName:LPCSTR)=> FARPROC;
+LoadLibraryA:(lpLibFileName:LPCSTR)=> HMODULE;
+LoadLibraryExA:(lpLibFileName:LPCSTR,hFile:HANDLE,dwFlags:DWORD)=> HMODULE;
+LoadLibraryExW:(lpLibFileName:LPCWSTR,hFile:HANDLE,dwFlags:DWORD)=> HMODULE;
+LoadLibraryW:(lpLibFileName:LPCWSTR)=> HMODULE;
+LoadResource:(hModule:HMODULE,hResInfo:HRSRC)=> HGLOBAL;
+LockResource:(hResData:HGLOBAL)=> LPVOID;
+RemoveDllDirectory:(Cookie:DLL_DIRECTORY_COOKIE)=> BOOL;
+SetDefaultDllDirectories:(DirectoryFlags:DWORD)=> BOOL;
+SizeofResource:(hModule:HMODULE,hResInfo:HRSRC)=> DWORD;
+}

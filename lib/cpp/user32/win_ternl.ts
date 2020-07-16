@@ -1,0 +1,1 @@
+export const UNICODE_STRING = 'CString';

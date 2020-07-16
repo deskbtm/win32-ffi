@@ -1,0 +1,82 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true
+	},
+	"extends": [
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"eslint:recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"plugins": [
+		"@typescript-eslint"
+	],
+	"parserOptions": {
+		"ecmaVersion": 2019,
+		"sourceType": "module"
+	},
+	"rules": {
+		"semi": "warn",
+		"no-multiple-empty-lines": [
+			"error",
+			{
+				"max": 1
+			}
+		],
+		"no-undef": "error",
+		"no-multi-spaces": [
+			"error",
+			{
+				"ignoreEOLComments": true
+			}
+		],
+		"no-unused-vars": "warn",
+		"comma-dangle": [
+			"warn",
+			{
+				"arrays": "never",
+				"imports": "never",
+				"exports": "never",
+				"functions": "never"
+			}
+		],
+		"no-console": [
+			"error",
+			{
+				"allow": [
+					"warn",
+					"log",
+					"trace",
+					"time",
+					"timeEnd",
+					"info",
+					"table",
+					"error"
+				]
+			}
+		],
+		"@typescript-eslint/no-var-requires": 0,
+		"@typescript-eslint/no-non-null-assertion": 0,
+		"@typescript-eslint/no-explicit-any": 0,
+		"@typescript-eslint/no-empty-interface": 0,
+		"@typescript-eslint/explicit-function-return-type": 0,
+		"@typescript-eslint/no-object-literal-type-assertion": 0,
+		"@typescript-eslint/explicit-member-accessibility": 0,
+		"@typescript-eslint/triple-slash-reference": 0,
+		"@typescript-eslint/no-empty-function": 0,
+		"import/no-unresolved": 0,
+		"@typescript-eslint/ban-ts-ignore": 0,
+		"no-extra-boolean-cast": 0,
+		"no-mixed-spaces-and-tabs": 0,
+		// 修复interface unused 的问题
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{
+				"args": "none"
+			}
+		],
+		"@typescript-eslint/no-use-before-define": 0
+	}
+}

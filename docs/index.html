@@ -1,0 +1,360 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>win-win</title>
+	<meta name="description" content="Documentation for win-win">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">win-win</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>win-win</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#win-win" id="win-win" style="color: inherit; text-decoration: none;">
+					<h1>Win-Win</h1>
+				</a>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>export</p>
+				<ul>
+					<li>WinWin</li>
+				</ul>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> winwin =<span class="hljs-keyword">new</span> WinWin();
+
+winwin.user32();
+winwin.kernel32();
+
+<span class="hljs-keyword">const</span> winFns = winwin.winFns(); <span class="hljs-comment">// include user32 and kernel32</span>
+
+<span class="hljs-keyword">const</span> _createEnumWindowProc = <span class="hljs-function">() =&gt;</span> ffi.Callback(CPP.BOOL, [CPP.HWND, CPP.LPARAM],
+ <span class="hljs-function">(<span class="hljs-params">hWnd: TS.HWND</span>) =&gt;</span> {
+        ......
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+});
+
+winFns.EnumWindows(<span class="hljs-built_in">this</span>._createEnumWindowProc(), <span class="hljs-number">0</span>);</code></pre>
+				<ul>
+					<li>L, <em>T,  _TEXT</em></li>
+				</ul>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> tmp: TS.HWND = FindWindowExW(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, L(<span class="hljs-string">&#x27;progman&#x27;</span>), <span class="hljs-literal">null</span>);</code></pre>
+				<ul>
+					<li>ref
+					see <a href="http://tootallnate.github.io/ref/">http://tootallnate.github.io/ref/</a></li>
+					<li>NULL = ref.NULL</li>
+					<li>Struct</li>
+				</ul>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> {ref, StructType,CPP} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;win-win&#x27;</span>;
+
+<span class="hljs-keyword">const</span> Struct = StructType(ref);
+
+<span class="hljs-keyword">const</span> MSG = Struct({
+    hwnd: CPP.HWND,
+    message: CPP.UINT,
+    wParam: CPP.WPARAM,
+    lParam: CPP.LPARAM,
+    time: CPP.DWORD,
+    pt: CPP.POINT
+});
+<span class="hljs-keyword">const</span> msg = <span class="hljs-keyword">new</span> MSG();
+<span class="hljs-built_in">console</span>.log(msg.ref());</code></pre>
+				<ul>
+					<li>TS: ts types</li>
+					<li>CPP: c++ types</li>
+				</ul>
+				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
+					<h2>Api</h2>
+				</a>
+				<a href="#doc" id="doc" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://github.com/sewerganger/win-win/docs">DOC</a></h3>
+				</a>
+				<a href="#notice" id="notice" style="color: inherit; text-decoration: none;">
+					<h2>Notice</h2>
+				</a>
+				<ul>
+					<li>If you can&#39;t get certain C++ parameter types, you can create a file and rewrite this function</li>
+				</ul>
+				<pre><code class="language-ts">overwrite.ts
+
+<span class="hljs-keyword">import</span> { CPP, ref } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;win-win&#x27;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> customFns = {
+    CallNextHookEx: [CPP.LRESULT, [CPP.HHOOK, CPP.INT, CPP.WPARAM, ref.refType(CPP.MOUSEHOOKSTRUCT)]]
+};</code></pre>
+				<pre><code class="language-ts">index.ts
+
+<span class="hljs-keyword">import</span> { customFns } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./overwrite&#x27;</span>;
+WinWin.overwrite({ user32Fns: customFns });</code></pre>
+				<ul>
+					<li>Win-win does not include Comctl32, because almost all macro-defined functions, but you can use <code>SendMessage</code> to achieve, winwin provides</li>
+					<li><strong><em>It is impossible to include all win api. If there is no prompt, it means you need to define it yourself.</em></strong></li>
+				</ul>
+				<a href="#tutorial" id="tutorial" style="color: inherit; text-decoration: none;">
+					<h2>Tutorial</h2>
+				</a>
+				<br>
+				* Since ffi cannot use the macro function of c++ #define, MAKEWPARAM, MAKELPARAM, etc. can only realize the operation of the number s. For details, please refer to the document of \*\_macro\_fns.ts\`
+				<pre><code class="language-ts"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> MAKELONG = (a: <span class="hljs-built_in">number</span>, b: <span class="hljs-built_in">number</span>): <span class="hljs-function"><span class="hljs-params">number</span> =&gt;</span> (a &amp; <span class="hljs-number">0xfff</span>) | ((b &amp; <span class="hljs-number">0xfff</span>) &lt;&lt; <span class="hljs-number">16</span>);</code></pre>
+				<hr>
+				<br>
+				<ul>
+					<li>ffi cannot force type conversion, so you need to use refType to define the type</li>
+				</ul>
+				<p>c++</p>
+				<pre><code class="language-cpp">MOUSEHOOKSTRUCT* mouse = (MOUSEHOOKSTRUCT*)(lParam)</code></pre>
+				<p>ts</p>
+				<pre><code class="language-ts">ffi.Callback(CPP.LRESULT, [CPP.INT, CPP.WPARAM, ref.refType(CPP.MOUSEHOOKSTRUCT)],<span class="hljs-function">(<span class="hljs-params">nCode: TS.INT, wParam: TS.WPARAM, lParam: TS.RefStruct</span>) =&gt;</span> {})</code></pre>
+				<hr>
+				<br>
+				<ul>
+					<li>Create thread</li>
+				</ul>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> { WinWin, ffi, CPP, L, NULL } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;win-win&#x27;</span>);
+
+<span class="hljs-keyword">const</span> { CreateThread, MessageBoxW } = <span class="hljs-keyword">new</span> WinWin().winFns();
+
+<span class="hljs-keyword">const</span> proc = ffi.Callback(CPP.INT, [CPP.PVOID], <span class="hljs-function">() =&gt;</span> {
+    MessageBoxW(<span class="hljs-number">0</span>, L(<span class="hljs-string">&quot;exmpale&quot;</span>), <span class="hljs-literal">null</span>, CPP.MB_OK | CPP.MB_ICONEXCLAMATION);
+});
+
+CreateThread(<span class="hljs-literal">null</span>, <span class="hljs-number">0</span>, proc, NULL, <span class="hljs-number">0</span>, NULL);</code></pre>
+				<ul>
+					<li>Create Hook</li>
+				</ul>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> _createMouseHookProc = <span class="hljs-function">() =&gt;</span> ffi.Callback(CPP.LRESULT, [CPP.INT, CPP.WPARAM, ref.refType(CPP.StructMOUSEHOOKSTRUCT)],
+        <span class="hljs-function">(<span class="hljs-params">nCode: TS.INT, wParam: TS.WPARAM, lParam: TS.RefStruct</span>) =&gt;</span> {
+            <span class="hljs-keyword">const</span> mouse: TS.MOUSEHOOKSTRUCT = lParam.deref();
+            <span class="hljs-keyword">const</span> pt = mouse.pt;
+            <span class="hljs-keyword">const</span> { x, y } = pt;
+            <span class="hljs-keyword">const</span> currentHwnd = WindowFromPoint(mouse.pt);    
+
+            <span class="hljs-keyword">return</span> CallNextHookEx(<span class="hljs-number">0</span>, nCode, wParam, lParam); <span class="hljs-comment">// need overwrite</span>
+        }
+    )
+<span class="hljs-keyword">const</span> _mouseHook = SetWindowsHookExW(CPP.WH_MOUSE_LL, <span class="hljs-built_in">this</span>._createMouseHookProc(), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+ <span class="hljs-keyword">const</span> msg: TS.RefStruct = <span class="hljs-keyword">new</span> CPP.StructMSG();
+ <span class="hljs-keyword">while</span> (GetMessageW(msg.ref(), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>) &amp;&amp; <span class="hljs-built_in">this</span>._trigger) {
+     TranslateMessage(msg.ref());
+     DispatchMessageW(msg.ref());
+ }
+
+UnhookWindowsHookEx(_mouseHook);
+</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_comctl32_comm_ctrl_constant_.html">&quot;lib/cpp/comctl32/comm_<wbr>ctrl_<wbr>constant&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_kernel32_err_handling_api_.html">&quot;lib/cpp/kernel32/err_<wbr>handling_<wbr>api&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_kernel32_lib_loader_api_fns_.html">&quot;lib/cpp/kernel32/lib_<wbr>loader_<wbr>api_<wbr>fns&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_kernel32_lib_loader_api_type_.html">&quot;lib/cpp/kernel32/lib_<wbr>loader_<wbr>api_<wbr>type&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_kernel32_process_threads_api_fns_.html">&quot;lib/cpp/kernel32/process_<wbr>threads_<wbr>api_<wbr>fns&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_kernel32_sys_info_api_.html">&quot;lib/cpp/kernel32/sys_<wbr>info_<wbr>api&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_base_tsd_.html">&quot;lib/cpp/user32/base_<wbr>tsd&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_user_macro_fns_.html">&quot;lib/cpp/user32/user_<wbr>macro_<wbr>fns&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_win_base_.html">&quot;lib/cpp/user32/win_<wbr>base&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_win_common_.html">&quot;lib/cpp/user32/win_<wbr>common&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_win_def_.html">&quot;lib/cpp/user32/win_<wbr>def&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_win_gdi_.html">&quot;lib/cpp/user32/win_<wbr>gdi&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_win_nls_.html">&quot;lib/cpp/user32/win_<wbr>nls&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_win_nt_.html">&quot;lib/cpp/user32/win_<wbr>nt&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_win_ternl_.html">&quot;lib/cpp/user32/win_<wbr>ternl&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_win_user_constant_.html">&quot;lib/cpp/user32/win_<wbr>user_<wbr>constant&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_win_user_fns_.html">&quot;lib/cpp/user32/win_<wbr>user_<wbr>fns&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_win_user_struct_.html">&quot;lib/cpp/user32/win_<wbr>user_<wbr>struct&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_user32_win_user_type_.html">&quot;lib/cpp/user32/win_<wbr>user_<wbr>type&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_cpp_utils_.html">&quot;lib/cpp/utils&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_common_.html">&quot;lib/ts/common&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_kernel32_err_handling_api_.html">&quot;lib/ts/kernel32/err_<wbr>handling_<wbr>api&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_kernel32_lib_loader_api_fns_.html">&quot;lib/ts/kernel32/lib_<wbr>loader_<wbr>api_<wbr>fns&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_kernel32_lib_loader_api_type_.html">&quot;lib/ts/kernel32/lib_<wbr>loader_<wbr>api_<wbr>type&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_kernel32_process_threads_api_fns_.html">&quot;lib/ts/kernel32/process_<wbr>threads_<wbr>api_<wbr>fns&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_kernel32_sys_info_api_.html">&quot;lib/ts/kernel32/sys_<wbr>info_<wbr>api&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_ref_.html">&quot;lib/ts/ref&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_user32_base_tsd_.html">&quot;lib/ts/user32/base_<wbr>tsd&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_user32_guid_def_.html">&quot;lib/ts/user32/guid_<wbr>def&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_user32_win_base_.html">&quot;lib/ts/user32/win_<wbr>base&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_user32_win_def_.html">&quot;lib/ts/user32/win_<wbr>def&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_user32_win_gdi_.html">&quot;lib/ts/user32/win_<wbr>gdi&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_user32_win_nls_.html">&quot;lib/ts/user32/win_<wbr>nls&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_user32_win_nt_.html">&quot;lib/ts/user32/win_<wbr>nt&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_user32_win_ternl_.html">&quot;lib/ts/user32/win_<wbr>ternl&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_user32_win_user_fns_.html">&quot;lib/ts/user32/win_<wbr>user_<wbr>fns&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_user32_win_user_struct_.html">&quot;lib/ts/user32/win_<wbr>user_<wbr>struct&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_ts_user32_win_user_type_.html">&quot;lib/ts/user32/win_<wbr>user_<wbr>type&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_win_win_.html">&quot;lib/win-<wbr>win&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

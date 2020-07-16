@@ -1,0 +1,36 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"lib": [
+			"esnext"
+		],
+		"declaration": true,
+		"declarationDir": "./dist/",
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"importsNotUsedAsValues": "preserve",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": false,
+		"sourceMap": false,
+		"baseUrl": ".",
+		"outDir": "./dist",
+		"paths": {
+			"@/*": [
+				"lib/*"
+			]
+		}
+	},
+	"exclude": [
+		"node_modules",
+		"temp",
+	],
+	"include": [
+		"lib/**/*"
+	]
+}

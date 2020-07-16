@@ -1,0 +1,135 @@
+ShowWindow  
+
+#include <napi.h>
+#include <iostream>
+#include <Windows.h>
+#include <tchar.h>
+#include <string.h>
+
+using namespace Napi;
+using namespace std;
+
+template <class T>
+
+size_t GetLength(T &arr)
+{
+  return sizeof(arr) / sizeof(arr[0]);
+}
+
+Value HasWindowHandle(CallbackInfo &info)
+{
+  Env env = info.Env();
+  // cout << info[0].IsBuffer();
+  // Uint32Array array = info[0].As<Uint32Array>();
+
+  // if (info[0].IsBuffer())
+  // {
+
+  // ArrayBuffer::New(env ,info[0]);
+  // Buffer::New(env, info[0], GetLength(info), );
+  // }
+  // cout << env << endl;
+  // HWND window_handle = FindWindow(_T("Progman"), nullptr);
+
+  // HWND window_handle = FindWindow(_T("Progman"), nullptr);
+  // int result;
+  // RECT rect;
+  // GetWindowRect(window_handle, &rect);
+  // SendMessageTimeout(window_handle, 0x052c, 0, 0, SMTO_NORMAL, 0x3e8, (PDWORD_PTR)&result);
+  // cout << rect.right - rect.left << rect.bottom - rect.top << endl;
+  return String::New(env, "Hello World");
+}
+
+void FindWindowHandle(const CallbackInfo &info)
+{
+  // Env env = info.Env();
+
+  // cout << info[0].As<String>().ToString();
+
+  if (info[0].IsBuffer())
+  {
+    Buffer<char> val = info[0].As<Buffer<char>>();
+    LPCSTR data_string = val.Data();
+
+    // int data_len = strlen(data_string);
+    // wchar_t *w_data_string = new wchar_t[data_len];
+    // MultiByteToWideChar(0, 0, data_string, data_len, w_data_string, 0);
+    HWND window_handle = FindWindowA(data_string, nullptr);
+    RECT rect;
+    GetWindowRect(window_handle, &rect);
+    cout << "width:" << rect.bottom - rect.top << "\n";
+  }
+}
+
+int pWindowCount = 0;
+int cWindowCount = 0;
+BOOL CALLBACK EnumChildWindowsProc(HWND handle, LPARAM lParam)
+{
+  LPSTR child_title = "";
+
+  GetWindowTextA(handle, child_title, 100);
+  printf("\t=====child:%hs\n", child_title);
+  return true;
+}
+
+BOOL CALLBACK EnumWindowsProc(HWND handle, LPARAM lParam)
+{
+
+  if (GetParent(handle) == nullptr && IsWindowVisible(handle))
+  {
+#ifdef UNICODE
+    WCHAR *title = new WCHAR[100];
+    GetWindowText(handle, title, 100);
+#else
+    char *title = new char[100];
+    GetWindowText(handle, title, 100);
+#endif
+    printf("%s %d\n", title, IsWindowUnicode(handle));
+    EnumChildWindows(handle, EnumChildWindowsProc, NULL);
+  }
+  return true;
+}
+
+void EnumAllWindows(const CallbackInfo &info)
+{
+  EnumWindows(EnumWindowsProc, NULL);
+}
+
+void EnumDesktop(const CallbackInfo &info)
+{
+  HWND handle = GetDesktopWindow();
+  handle = GetWindow(handle, GW_CHILD);
+#ifdef UNICODE
+  WCHAR *title = new WCHAR[200];
+#else
+  char *title = new char[200];
+#endif
+  GetWindowText(handle, title, 200);
+  cout << title;
+  // int num = 1;
+  // while (handle != NULL)
+  // {
+  //   GetWindowText(handle, title, 200);
+  //   cout << num++ << ": " << title << endl;
+  //   handle = GetNextWindow(handle, GW_HWNDNEXT);
+  // }
+}
+
+void CreateAWindow(const CallbackInfo &info)
+{
+  const wchar_t CLASS_NAME[] = L"Demo";
+  // WNDCLASS wc = {};
+  // wc.
+}
+
+Object Init(Env env, Object exports)
+{
+
+  exports.Set(String::New(env, "findWindowHandle"), Function::New(env, FindWindowHandle));
+  exports.Set(String::New(env, "enumAllWindows"), Function::New(env, EnumAllWindows));
+  exports.Set(String::New(env, "enumDesktop"), Function::New(env, EnumDesktop));
+  exports.Set(String::New(env, "createWindow"), Function::New(env, CreateAWindow));
+  return exports;
+}
+
+NODE_API_MODULE(behinder, Init);
