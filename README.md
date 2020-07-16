@@ -22,17 +22,23 @@ const _createEnumWindowProc = () => ffi.Callback(CPP.BOOL, [CPP.HWND, CPP.LPARAM
 
 winFns.EnumWindows(this._createEnumWindowProc(), 0);
 ```
-
+---
 * L, _T,  _TEXT_
 
 ``` ts
 const tmp: TS.HWND = FindWindowExW(0, 0, L('progman'), null);
 ```
-
+---
 * ref
 see [http://tootallnate.github.io/ref/](http://tootallnate.github.io/ref/)
+
+---
+* ffi [https://www.npmjs.com/package/ffi-napi](https://www.npmjs.com/package/ffi-napi)
+---
 * NULL = ref.NULL
-* Struct
+---
+* Struct 
+
 
 ``` ts
 import {ref, StructType,CPP} from 'win-win';
@@ -52,6 +58,7 @@ console.log(msg.ref());
 ```
 
 * TS: ts types
+---
 * CPP: c++ types
 
 ## Api
@@ -83,7 +90,7 @@ WinWin.overwrite({ user32Fns: customFns });
 
 ## Tutorial
 <br>
-* Since ffi cannot use the macro function of c++ #define, MAKEWPARAM, MAKELPARAM, etc. can only realize the operation of the number s. For details, please refer to the document of \*\_macro\_fns.ts\`
+* Since ffi cannot use the macro function of c++ #define, MAKEWPARAM, MAKELPARAM, etc. can only realize the operation of the numbers. For details, please refer to the document of \*\_macro\_fns.ts\`
 
 ``` ts
 export const MAKELONG = (a: number, b: number): number => (a & 0xfff) | ((b & 0xfff) << 16);
