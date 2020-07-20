@@ -1,8 +1,10 @@
 # Win-Win
 
+[中文](https://zhuanlan.zhihu.com/p/161732906)
+
 ## Usage
 
-export
+Exports:
 
 * WinWin
 
@@ -22,26 +24,26 @@ const _createEnumWindowProc = () => ffi.Callback(CPP.BOOL, [CPP.HWND, CPP.LPARAM
 
 winFns.EnumWindows(this._createEnumWindowProc(), 0);
 ```
----
+
 * L, _T,  _TEXT_
 
 ``` ts
 const tmp: TS.HWND = FindWindowExW(0, 0, L('progman'), null);
 ```
----
+
 * ref
 see [http://tootallnate.github.io/ref/](http://tootallnate.github.io/ref/)
 
----
+
 * ffi [https://www.npmjs.com/package/ffi-napi](https://www.npmjs.com/package/ffi-napi)
----
+
 * NULL = ref.NULL
----
+
 * Struct 
 
 
 ``` ts
-import {ref, StructType,CPP} from 'win-win';
+import {ref, StructType,CPP} from 'win-win-api';
 
 const Struct = StructType(ref);
 
@@ -58,12 +60,12 @@ console.log(msg.ref());
 ```
 
 * TS: ts types
----
+
 * CPP: c++ types
 
 ## Api
 
-### [DOCS](https://sewerganger.github.io/win-win/)
+### [DOCS](https://sewerganger.github.io/win-win-api/)
 
 ## Notice
 
@@ -72,7 +74,7 @@ console.log(msg.ref());
 ``` ts
 overwrite.ts
 
-import { CPP, ref } from 'win-win';
+import { CPP, ref } from 'win-win-api';
 export const customFns = {
 	CallNextHookEx: [CPP.LRESULT, [CPP.HHOOK, CPP.INT, CPP.WPARAM, ref.refType(CPP.MOUSEHOOKSTRUCT)]]
 };
@@ -120,7 +122,7 @@ ffi.Callback(CPP.LRESULT, [CPP.INT, CPP.WPARAM, ref.refType(CPP.MOUSEHOOKSTRUCT)
 - Create thread
 
 ``` ts
-const { WinWin, ffi, CPP, L, NULL } = require('win-win');
+const { WinWin, ffi, CPP, L, NULL } = require('win-win-api');
 
 const { CreateThread, MessageBoxW } = new WinWin().winFns();
 
