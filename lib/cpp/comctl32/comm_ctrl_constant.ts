@@ -1,3 +1,5 @@
+//comctl32.dll是Windows应用程序公用GUI图形用户界面模块
+
 //====== Ranges for control message IDs =======================================
 
 export const LVM_FIRST = 0x1000; // ListView messages

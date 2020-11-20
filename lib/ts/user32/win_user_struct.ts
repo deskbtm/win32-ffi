@@ -1,5 +1,5 @@
 
-import { Pointer, RefStruct } from "../common";
+import { Pointer } from "../common";
 import { HWND, UINT, WPARAM, LPARAM, DWORD, POINT } from "./win_def";
 import { ULONG_PTR } from "./base_tsd";
 

@@ -7,3 +7,4 @@ package-lock.json
 bak
 .unotes
 test
+**/temp/
