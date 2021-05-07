@@ -1,5 +1,5 @@
 # Win-Win-Api
-win32 api call with js/ts that powered by node-ffi
+win32 api binding for js/ts that powered by node-ffi
 
 [中文](https://zhuanlan.zhihu.com/p/161732906)
 
