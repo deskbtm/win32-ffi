@@ -1,5 +1,4 @@
 import { WinUserFns } from './win_user_fns';
-export * from '../common';
 export * from './base_tsd';
 export * from './win_def';
 export * from './win_nls';

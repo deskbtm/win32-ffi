@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2021 
+ *   All rights reserved.
+ */
 /**
  *	 data types base on  @see https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types
  *		api @see https://docs.microsoft.com/en-us/windows/win32/api/winuser/

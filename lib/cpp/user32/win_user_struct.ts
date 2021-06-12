@@ -7,7 +7,7 @@ import { HWND, UINT, WPARAM, LPARAM, POINT } from './win_def';
  *			REPOSITORY --- git+https://github.com/sewerganger/shadow.git
  */
 
-import { DWORD, INT } from "./win_def";
+import { DWORD } from "./win_def";
 import * as ref from 'ref-napi';
 import StructDi = require('ref-struct-di');
 import { LONG } from './win_nt';

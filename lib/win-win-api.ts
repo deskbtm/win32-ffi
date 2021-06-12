@@ -37,7 +37,7 @@ export class WinWin {
 	 */
 	// eslint-disable-next-line @typescript-eslint/ban-types
 	public user32<T = {}>(): TsWin32Fns<User32Fns & T> {
-		const fns: TsWin32Fns<User32Fns> = ffi.Library(LibraryNames.user32, Object.assign({}, user32Fns, overwriteOptions.user32Fns));
+		const fns: TsWin32Fns<User32Fns> = ffi.Library(LibraryNames.user32, Object.assign({}, user32Fns as any, overwriteOptions.user32Fns));
 		return Object.assign({}, fns, userMacroFns(fns));
 	}
 	

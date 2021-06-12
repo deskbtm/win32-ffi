@@ -72,7 +72,7 @@
 		"no-mixed-spaces-and-tabs": 0,
 		// 修复interface unused 的问题
 		"@typescript-eslint/no-unused-vars": [
-			"warn",
+			"error",
 			{
 				"args": "none"
 			}

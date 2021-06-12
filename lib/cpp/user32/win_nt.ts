@@ -1,3 +1,8 @@
+/*
+ *   Copyright (c) 2021 
+ *   All rights reserved.
+ */
+
 import { _LONG, _WORD, _DWORD, _PDWORD, _BYTE } from './win_common';
 
 import { arch, iconv } from "../utils";

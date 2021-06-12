@@ -1,3 +1,4 @@
+
 /* eslint-disable @typescript-eslint/ban-types */
 
 // Type definitions for ref-napi 1.4
@@ -28,7 +29,7 @@ export interface Ref {
 	/** Get the memory address of buffer. */
 	address(buffer: Buffer): number;
 
-	hexAddress(buffer: Buffer): number;
+	hexAddress(buffer: Buffer): string;
 
 	/** Allocate the memory with the given value written to it. */
 	alloc(type: Type, value?: any): Buffer;

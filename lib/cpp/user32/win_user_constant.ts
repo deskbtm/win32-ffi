@@ -1,3 +1,4 @@
+
 export const WM_MOUSEFIRST = 0x0200;
 export const WM_MOUSEMOVE = 0x0200;
 export const WM_LBUTTONDOWN = 0x0201;

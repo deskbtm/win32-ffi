@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2021 
+ *   All rights reserved.
+ */
 export const DISPLAYCONFIG_DEVICE_INFO_HEADER = 'pointer';
 export const tagDISPLAYCONFIG_DEVICE_INFO_HEADER = {
 	// type: DISPLAYCONFIG_DEVICE_INFO_TYPE

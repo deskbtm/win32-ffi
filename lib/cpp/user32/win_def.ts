@@ -2,7 +2,6 @@
 import { _LONG, _DECLARE_HANDLE, _WORD, _DWORD, _BYTE, _BOOL, _LPVOID, _LONG_PTR, _UINT_PTR } from "./win_common";
 import * as ref from 'ref-napi';
 import StructType = require('ref-struct-di');
-import { types } from 'ref-napi';
 const Struct = StructType(ref);
 /**
  *			short == int16;

@@ -1,6 +1,6 @@
 {
 	"name": "win-win-api",
-	"version": "0.0.2",
+	"version": "0.0.5",
 	"description": "js/ts win32 api base on ffi",
 	"author": "sewerganger <wanghan9423@outlook.com>",
 	"homepage": "https://github.com/sewerganger/win-win-api",
@@ -27,32 +27,32 @@
 		"url": "git+https://github.com/sewerganger/shadow.git"
 	},
 	"scripts": {
-		"test": "echo \"Error: run tests from root\" && exit 1",
 		"build": "rimraf ./dist && tsc -p tsconfig.json",
 		"start": "rimraf ./dist && tsc -w -p tsconfig.json",
 		"spider": "node ./auto/win_cpp_fns_to_ts_generator.js",
-		"doc": "typedoc ./lib --readme ./README.md"
+		"doc": "typedoc ./lib --readme ./README.md",
+		"lint": "eslint lib  --fix --ext \".ts\" "
 	},
 	"bugs": {
 		"url": "https://github.com/sewerganger/shadow/issues"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^3.4.0",
-		"@typescript-eslint/parser": "^3.4.0",
-		"cheerio": "^1.0.0-rc.3",
-		"eslint": "^7.3.1",
-		"eslint-plugin-import": "^2.21.2",
+		"@types/ffi-napi": "^4.0.3",
+		"@types/ref-napi": "^3.0.2",
+		"@types/ref-union-di": "^1.0.3",
+		"@typescript-eslint/eslint-plugin": "^4.26.1",
+		"@typescript-eslint/parser": "^4.26.1",
+		"cheerio": "1.0.0-rc.10",
+		"eslint": "^7.28.0",
+		"eslint-plugin-import": "^2.23.4",
 		"npm-run-all": "^4.1.5",
-		"request-promise": "^4.2.5",
+		"request-promise": "^4.2.6",
 		"rimraf": "^3.0.2",
-		"typescript": "^3.9.5"
+		"typescript": "^4.3.2"
 	},
 	"dependencies": {
-		"@types/ffi-napi": "^2.4.3",
-		"@types/ref-napi": "^1.4.1",
-		"@types/ref-union-di": "^1.0.0",
-		"ffi-napi": "^3.0.1",
-		"ref-napi": "^2.0.3",
+		"ffi-napi": "^4.0.3",
+		"ref-napi": "^3.0.3",
 		"ref-struct-di": "^1.1.1",
 		"ref-union-di": "^1.0.1"
 	}

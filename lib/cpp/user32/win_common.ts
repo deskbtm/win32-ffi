@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2021 
+ *   All rights reserved.
+ */
 import { arch } from "../utils";
 
 export const _BOOL = 'int';

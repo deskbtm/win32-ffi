@@ -1,3 +1,4 @@
+
 /**
  *			AUTHOR --- sewerganger <wanghan9423@outlook.com>
  *			LICENSE --- MIT
@@ -13,7 +14,7 @@ import * as missDeclarationRef from 'ref-napi';
 export * as TS from './ts';
 export * as CPP from './cpp';
 export * from './cpp/string';
-export * from './win-win';
+export * from './win-win-api';
 const ref: Ref = missDeclarationRef as Ref;
 const { NULL_POINTER, NULL } = missDeclarationRef;
 /**
