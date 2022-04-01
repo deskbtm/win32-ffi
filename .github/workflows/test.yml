@@ -1,0 +1,20 @@
+# name: Test
+
+# on:
+#   push:
+#     branches:
+#       - "master"
+#     paths-ignore:
+#       - "temp/**"
+#       - "example/**"
+#       - ".vscode/**"
+#       - "docs/**"
+#       - "*.md"
+
+# jobs:
+#   build:
+#     runs-on: {{matrix.os}}
+#     strategy:
+# 			matrix:
+# 				os: [windows-latest]
+# 				node: [14, 16]

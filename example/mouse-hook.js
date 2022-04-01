@@ -1,6 +1,6 @@
-const { WinWin, ffi, CPP, ref, NULL } = require('../dist');
+const { Win32ffi, ffi, CPP, ref, NULL } = require('../dist');
 
-const winWin = new WinWin();
+const win32ffi = new Win32ffi();
 const {
 	CallNextHookEx,
 	WindowFromPoint,
@@ -9,8 +9,8 @@ const {
 	DispatchMessageW,
 	TranslateMessage,
 	UnhookWindowsHookEx,
-} = winWin.user32();
-const { GetModuleHandleW } = winWin.kernel32();
+} = win32ffi.user32();
+const { GetModuleHandleW } = win32ffi.kernel32();
 
 const cb = function (nCode, wParam, lParam) {
 	const mouse = lParam.deref();
@@ -34,7 +34,6 @@ const _mouseHook = SetWindowsHookExW(CPP.WH_MOUSE_LL, _createMouseHookProc, hIns
 const msg = new CPP.StructMSG();
 
 // 创建消息循环
-console.log(GetMessageW(msg.ref(), 0, 0, 0));
 while (GetMessageW(msg.ref(), 0, 0, 0)) {
 	TranslateMessage(msg.ref());
 	DispatchMessageW(msg.ref());

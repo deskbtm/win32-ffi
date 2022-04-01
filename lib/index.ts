@@ -1,10 +1,17 @@
-
 /**
- *			AUTHOR --- sewerganger <wanghan9423@outlook.com>
- *			LICENSE --- MIT
- *			LASTMODIFY --- 2020-07-01T12:48:39.005Z
- *			DESCRIPTION --- TODO: description
- *			REPOSITORY --- git+https://github.com/sewerganger/shadow.git
+ * Copyright 2022 WangHan
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 import StructType = require('ref-struct-di');
@@ -14,7 +21,7 @@ import * as missDeclarationRef from 'ref-napi';
 export * as TS from './ts';
 export * as CPP from './cpp';
 export * from './cpp/string';
-export * from './win-win-api';
+export * from './win32-ffi';
 const ref: Ref = missDeclarationRef as Ref;
 const { NULL_POINTER, NULL } = missDeclarationRef;
 /**
@@ -23,8 +30,6 @@ const { NULL_POINTER, NULL } = missDeclarationRef;
 export * as ffi from 'ffi-napi';
 
 /**
- * @see https://www.npmjs.com/package/ref-struct-di 
+ * @see https://www.npmjs.com/package/ref-struct-di
  */
-// export { default as Struct } from 'ref-struct-di';
 export { StructType, ref, NULL, NULL_POINTER };
-

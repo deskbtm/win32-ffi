@@ -3,14 +3,14 @@
 const cheerio = require('cheerio');
 const request = require('request-promise');
 const fs = require('fs');
-const { resolve } = require('path');
+const { resolve, join } = require('path');
 const { promisify } = require('util');
 
 const appendFile = promisify(fs.appendFile);
 
 const chalk = require('chalk');
 // '/winuser', '/libloaderapi' , '/processthreadsapi'
-const libList = ['/processthreadsapi'];
+const libList = ['/processthreadsapi', '/winuser', '/libloaderapi'];
 const baseUrl = 'https://docs.microsoft.com/';
 
 const configure = { baseUrl };
@@ -22,57 +22,59 @@ const createAbortError = () => {
 	return error;
 };
 
-const createDelay = ({ clearTimeout: defaultClear, setTimeout: set, willResolve }) => (ms, { value, signal } = {}) => {
-	if (signal && signal.aborted) {
-		return Promise.reject(createAbortError());
-	}
-
-	let timeoutId;
-	let settle;
-	let rejectFn;
-	const clear = defaultClear || clearTimeout;
-
-	const signalListener = () => {
-		clear(timeoutId);
-		rejectFn(createAbortError());
-	};
-
-	const cleanup = () => {
-		if (signal) {
-			signal.removeEventListener('abort', signalListener);
+const createDelay =
+	({ clearTimeout: defaultClear, setTimeout: set, willResolve }) =>
+	(ms, { value, signal } = {}) => {
+		if (signal && signal.aborted) {
+			return Promise.reject(createAbortError());
 		}
-	};
 
-	const delayPromise = new Promise((resolve, reject) => {
-		settle = () => {
-			cleanup();
-			if (willResolve) {
-				resolve(value);
-			} else {
-				reject(value);
+		let timeoutId;
+		let settle;
+		let rejectFn;
+		const clear = defaultClear || clearTimeout;
+
+		const signalListener = () => {
+			clear(timeoutId);
+			rejectFn(createAbortError());
+		};
+
+		const cleanup = () => {
+			if (signal) {
+				signal.removeEventListener('abort', signalListener);
 			}
 		};
 
-		rejectFn = reject;
-		timeoutId = (set || setTimeout)(settle, ms);
-	});
+		const delayPromise = new Promise((resolve, reject) => {
+			settle = () => {
+				cleanup();
+				if (willResolve) {
+					resolve(value);
+				} else {
+					reject(value);
+				}
+			};
 
-	if (signal) {
-		signal.addEventListener('abort', signalListener, { once: true });
-	}
+			rejectFn = reject;
+			timeoutId = (set || setTimeout)(settle, ms);
+		});
 
-	delayPromise.clear = () => {
-		clear(timeoutId);
-		timeoutId = null;
-		settle();
+		if (signal) {
+			signal.addEventListener('abort', signalListener, { once: true });
+		}
+
+		delayPromise.clear = () => {
+			clear(timeoutId);
+			timeoutId = null;
+			settle();
+		};
+
+		return delayPromise;
 	};
-
-	return delayPromise;
-};
 
 const delay = createDelay({ willResolve: true });
 
-// 这里本应该使用自动机来写 
+// 这里本应该使用自动机来写
 var parseCppToTs = (code) => {
 	const list = code.replace(/\n+/g, '').split(/\s+/g);
 	let isStartParam = false;
@@ -89,19 +91,19 @@ var parseCppToTs = (code) => {
 			if (c.includes('(')) {
 				funcName = c.replace(/\(.*\);/g, '');
 			} else {
-				tsParamString += (c.replace(');', '') + (paramType.length !== 0 ? ':' + paramType.join('|') : ''));
+				tsParamString += c.replace(');', '') + (paramType.length !== 0 ? ':' + paramType.join('|') : '');
 			}
 			retTsCode = funcName + ':' + `(${tsParamString})=> ${retType.join('|')};`;
-			retTsCppCode = cppParamType.length > 0 ?
-				`${funcName}:[${retType.join('')}, [${cppParamType.join(',')}]],` :
-				`${funcName}:[${retType.join('')},[\\placeholder]],`;
+			retTsCppCode =
+				cppParamType.length > 0
+					? `${funcName}:[${retType.join('')}, [${cppParamType.join(',')}]],`
+					: `${funcName}:[${retType.join('')},[\\placeholder]],`;
 		} else if (isStartParam) {
-
 			if (c.endsWith(',')) {
 				if (paramType.length == 0) {
 					tsParamString += c;
 				} else {
-					tsParamString += (c.replace(',', '') + ':' + paramType.join('|') + ',');
+					tsParamString += c.replace(',', '') + ':' + paramType.join('|') + ',';
 				}
 				paramType = [];
 			} else {
@@ -114,7 +116,6 @@ var parseCppToTs = (code) => {
 		} else {
 			retType.push(c.toUpperCase());
 		}
-
 	}
 	return { ts: retTsCode, ffi: retTsCppCode };
 };
@@ -125,8 +126,9 @@ const extractContent = async (content) => {
 	return parseCppToTs(cppCode);
 };
 
-(async () => {
+const baseDir = resolve(__dirname, `../temp/${new Date().toLocaleDateString().replace(/\//g, '-')}`);
 
+(async () => {
 	for await (const lib of libList) {
 		const intrefaceTemplate = `export interface WinUserFns extends TsWin32FnsBasic {\n`;
 		const ffiTemplate = `export const ${lib.replace('/', '')}Fns = {\n `;
@@ -137,8 +139,10 @@ const extractContent = async (content) => {
 
 		const uid = ((Math.random() + Date.now()) * 0xffffff).toString(36);
 
-		const typePath = resolve(__dirname, `../temp${lib}.type.${uid}.txt`);
-		const ffiPath = resolve(__dirname, `../temp${lib}.ffi.${uid}.txt`);
+		const typePath = join(baseDir, `${lib}.type.${uid}.txt`);
+		const ffiPath = join(baseDir, `${lib}.ffi.${uid}.txt`);
+
+		await fs.promises.mkdir(baseDir, { recursive: true });
 
 		await appendFile(typePath, intrefaceTemplate).catch((err) => console.log(err));
 		await appendFile(ffiPath, ffiTemplate).catch((err) => console.log(err));
@@ -167,3 +171,6 @@ const extractContent = async (content) => {
 	}
 })();
 
+process.once('uncaughtException', () => {
+	fs.rmSync(baseDir, { recursive: true });
+});

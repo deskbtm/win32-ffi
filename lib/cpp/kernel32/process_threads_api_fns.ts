@@ -1,13 +1,35 @@
-import { HANDLE, VOID, LPCSTR, LPCWSTR, LPWSTR, LPSTR, PHANDLE, PCWSTR, PVOID } from "../user32/win_nt";
-import { LPSECURITY_ATTRIBUTES, LPTHREAD_START_ROUTINE } from "../user32/win_base";
-import { LPVOID, DWORD, LPDWORD, BOOL, UINT, PDWORD, INT, HRESULT, LPCVOID, PBOOL, USHORT, PULONG } from "../user32/win_def";
-import { SIZE_T, ULONG_PTR, PSIZE_T, DWORD_PTR } from "../user32/base_tsd";
-import { LPCGUID } from "../user32/win_user_struct";
+import { HANDLE, VOID, PHANDLE, PCWSTR } from '../user32/win_nt';
+import { LPSECURITY_ATTRIBUTES, LPTHREAD_START_ROUTINE } from '../user32/win_base';
+import {
+	LPVOID,
+	DWORD,
+	LPDWORD,
+	BOOL,
+	UINT,
+	INT,
+	HRESULT,
+	PULONG,
+} from '../user32/win_def';
+import { SIZE_T } from '../user32/base_tsd';
 
 export const processThreadsApiFns = {
 	CreateThread: [HANDLE, [LPSECURITY_ATTRIBUTES, SIZE_T, LPTHREAD_START_ROUTINE, LPVOID, DWORD, LPDWORD]],
-	ExitThread: [VOID, [DWORD]]
-	// CreateProcessA: [BOOL, [LPCSTR, LPSTR, LPSECURITY_ATTRIBUTES, LPSECURITY_ATTRIBUTES, BOOL, DWORD, LPVOID, LPCSTR, LPSTARTUPINFOA, LPPROCESS_INFORMATION]],
+	ExitThread: [VOID, [DWORD]],
+	// CreateProcessA: [
+	// 	BOOL,
+	// 	[
+	// 		LPCSTR,
+	// 		LPSTR,
+	// 		LPSECURITY_ATTRIBUTES,
+	// 		LPSECURITY_ATTRIBUTES,
+	// 		BOOL,
+	// 		DWORD,
+	// 		LPVOID,
+	// 		LPCSTR,
+	// 		LPSTARTUPINFOA,
+	// 		LPPROCESS_INFORMATION,
+	// 	],
+	// ],
 	// CreateProcessAsUserA: [BOOL, [HANDLE, LPCSTR, LPSTR, LPSECURITY_ATTRIBUTES, LPSECURITY_ATTRIBUTES, BOOL, DWORD, LPVOID, LPCSTR, LPSTARTUPINFOA, LPPROCESS_INFORMATION]],
 	// CreateProcessAsUserW: [BOOL, [HANDLE, LPCWSTR, LPWSTR, LPSECURITY_ATTRIBUTES, LPSECURITY_ATTRIBUTES, BOOL, DWORD, LPVOID, LPCWSTR, LPSTARTUPINFOW, LPPROCESS_INFORMATION]],
 	// CreateProcessW: [BOOL, [LPCWSTR, LPWSTR, LPSECURITY_ATTRIBUTES, LPSECURITY_ATTRIBUTES, BOOL, DWORD, LPVOID, LPCWSTR, LPSTARTUPINFOW, LPPROCESS_INFORMATION]],
@@ -71,21 +93,21 @@ export const processThreadsApiFns = {
 	// SetProcessShutdownParameters: [BOOL, [DWORD, DWORD]],
 	// SetProtectedPolicy: [BOOL, [LPCGUID, ULONG_PTR, PULONG_PTR]],
 	// SetThreadContext: [BOOL, [HANDLE, CONST, CONTEXT]],
-	// SetThreadDescription: [HRESULT, [HANDLE, PCWSTR]],
-	// SetThreadIdealProcessor: [DWORD, [HANDLE, DWORD]],
+	SetThreadDescription: [HRESULT, [HANDLE, PCWSTR]],
+	SetThreadIdealProcessor: [DWORD, [HANDLE, DWORD]],
 	// SetThreadIdealProcessorEx: [BOOL, [HANDLE, PPROCESSOR_NUMBER, PPROCESSOR_NUMBER]],
 	// SetThreadInformation: [BOOL, [HANDLE, THREAD_INFORMATION_CLASS, LPVOID, DWORD]],
-	// SetThreadPriority: [BOOL, [HANDLE, INT]],
-	// SetThreadPriorityBoost: [BOOL, [HANDLE, BOOL]],
-	// SetThreadStackGuarantee: [BOOL, [PULONG]],
-	// SetThreadToken: [BOOL, [PHANDLE, HANDLE]],
-	// SuspendThread: [DWORD, [HANDLE]],
-	// SwitchToThread: [BOOL, [\placeholder]],
-	// TerminateProcess: [BOOL, [HANDLE, UINT]],
-	// TerminateThread: [BOOL, [HANDLE, DWORD]],
+	SetThreadPriority: [BOOL, [HANDLE, INT]],
+	SetThreadPriorityBoost: [BOOL, [HANDLE, BOOL]],
+	SetThreadStackGuarantee: [BOOL, [PULONG]],
+	SetThreadToken: [BOOL, [PHANDLE, HANDLE]],
+	SuspendThread: [DWORD, [HANDLE]],
+	SwitchToThread: [BOOL, []],
+	TerminateProcess: [BOOL, [HANDLE, UINT]],
+	TerminateThread: [BOOL, [HANDLE, DWORD]],
 	// TlsAlloc: [DWORD, [\placeholder]],
-	// TlsFree: [BOOL, [DWORD]],
-	// TlsGetValue: [LPVOID, [DWORD]],
-	// TlsSetValue: [BOOL, [DWORD, LPVOID]],
+	TlsFree: [BOOL, [DWORD]],
+	TlsGetValue: [LPVOID, [DWORD]],
+	TlsSetValue: [BOOL, [DWORD, LPVOID]],
 	// UpdateProcThreadAttribute: [BOOL, [LPPROC_THREAD_ATTRIBUTE_LIST, DWORD, DWORD_PTR, PVOID, SIZE_T, PVOID, PSIZE_T]],
 };

@@ -33,15 +33,6 @@
 			}
 		],
 		"no-unused-vars": "warn",
-		"comma-dangle": [
-			"warn",
-			{
-				"arrays": "never",
-				"imports": "never",
-				"exports": "never",
-				"functions": "never"
-			}
-		],
 		"no-console": [
 			"error",
 			{

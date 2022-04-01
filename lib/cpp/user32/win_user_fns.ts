@@ -467,7 +467,7 @@ export const winUserFns = {
 	InvalidateRgn: [BOOL, [HWND, HRGN, BOOL]],
 	InvertRect: [BOOL, [HDC, RECT]],
 	// // IS_INTRESOURCE: [VOID, [\placeholder]],
-	// // IS_POINTER_CANCELED_WPARAM: [VOID, [\placeholder]],
+	// IS_POINTER_CANCELED_WPARAM: [VOID, [\placeholder]],
 	// // IS_POINTER_FIFTHBUTTON_WPARAM: [VOID, [\placeholder]],
 	// // IS_POINTER_FIRSTBUTTON_WPARAM: [VOID, [\placeholder]],
 	// // IS_POINTER_FLAG_SET_WPARAM: [VOID, [\placeholder]],

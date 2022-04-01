@@ -10,7 +10,8 @@
 		"lib": "lib"
 	},
 	"files": [
-		"lib"
+		"lib/**",
+		"dist/**"
 	],
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org/"
@@ -20,8 +21,12 @@
 		"ffi",
 		"electron",
 		"node",
-		"win32"
+		"win32",
+		"system"
 	],
+	"engines": {
+		"node": ">=14"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/sewerganger/shadow.git"
@@ -29,15 +34,17 @@
 	"scripts": {
 		"build": "rimraf ./dist && tsc -p tsconfig.json",
 		"start": "rimraf ./dist && tsc -w -p tsconfig.json",
-		"spider": "node ./auto/win_cpp_fns_to_ts_generator.js",
+		"gen": "node ./scripts/win_cpp_fns_to_ts_generator.js",
 		"doc": "typedoc ./lib --readme ./README.md",
-		"lint": "eslint lib  --fix --ext \".ts\" "
+		"lint": "eslint lib  --fix --ext \".ts\" ",
+		"test": "jest"
 	},
 	"bugs": {
 		"url": "https://github.com/sewerganger/shadow/issues"
 	},
 	"devDependencies": {
 		"@types/ffi-napi": "^4.0.5",
+		"@types/jest": "^27.4.1",
 		"@types/ref-napi": "^3.0.4",
 		"@types/ref-union-di": "^1.0.3",
 		"@typescript-eslint/eslint-plugin": "^4.26.1",
@@ -45,10 +52,14 @@
 		"cheerio": "1.0.0-rc.10",
 		"eslint": "^7.28.0",
 		"eslint-plugin-import": "^2.23.4",
+		"jest": "^27.5.1",
 		"node-gyp": "^9.0.0",
 		"npm-run-all": "^4.1.5",
+		"request": "^2.88.2",
 		"request-promise": "^4.2.6",
 		"rimraf": "^3.0.2",
+		"ts-jest": "^27.1.4",
+		"typedoc": "^0.22.13",
 		"typescript": "^4.3.2"
 	},
 	"dependencies": {
