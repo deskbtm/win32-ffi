@@ -55,7 +55,7 @@ const mainWindow = new BrowserWindow({
 });
 
 const decimalHwnd = bufferCastInt32(mainWindow.getNativeWindowHandle());
-
+SetWindowPos(decimalHwnd, 0, 0, 0, 100, 100, CPP.SWP_NOZORDER);
 
 ```
 
