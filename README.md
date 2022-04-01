@@ -179,7 +179,7 @@ export const customFns = {
 index.ts
 
 import { customFns } from './overwrite';
-Win32ffi.overwrite({ user32Fns: customFns });
+Win32ffi.assign({ user32Fns: customFns });
 ```
 
 * win32-ffi does not include Comctl32, because almost all macro-defined functions, but you can use `SendMessage` to achieve, win32ffi provides
