@@ -1,6 +1,6 @@
 {
 	"name": "win32-ffi",
-	"version": "0.0.5",
+	"version": "0.0.6-alpha.0",
 	"description": "js/ts win32 api base on ffi",
 	"author": "sewerganger <wanghan9423@outlook.com>",
 	"homepage": "https://github.com/sewerganger/win-win-api",
