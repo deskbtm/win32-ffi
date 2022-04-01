@@ -1,16 +1,15 @@
-# Win-Win-Api
-win32 api binding for js/ts that powered by node-ffi
+## win32-ffi
 
-[中文](https://zhuanlan.zhihu.com/p/161732906)
+win32 api binding for js/ts that powered by node-ffi
 
 ## Usage
 
 Exports:
 
-* WinWin
+* Win32FFI
 
-``` ts
-const winwin =new WinWin();
+```ts
+const winwin =new ();
 
 winwin.user32();
 winwin.kernel32();
@@ -19,8 +18,8 @@ const winFns = winwin.winFns(); // include user32 and kernel32
 
 const _createEnumWindowProc = () => ffi.Callback(CPP.BOOL, [CPP.HWND, CPP.LPARAM],
  (hWnd: TS.HWND) => {
-		......
-		return true;
+	......
+	return true;
 });
 
 winFns.EnumWindows(this._createEnumWindowProc(), 0);
@@ -28,22 +27,17 @@ winFns.EnumWindows(this._createEnumWindowProc(), 0);
 
 * L, _T,  _TEXT_
 
-``` ts
+```ts
 const tmp: TS.HWND = FindWindowExW(0, 0, L('progman'), null);
 ```
 
 * ref
-see [http://tootallnate.github.io/ref/](http://tootallnate.github.io/ref/)
-
-
+  see [http://tootallnate.github.io/ref/](http://tootallnate.github.io/ref/)
 * ffi [https://www.npmjs.com/package/ffi-napi](https://www.npmjs.com/package/ffi-napi)
-
 * NULL = ref.NULL
+* Struct
 
-* Struct 
-
-
-``` ts
+```ts
 import {ref, StructType,CPP} from 'win-win-api';
 
 const Struct = StructType(ref);
@@ -61,18 +55,15 @@ console.log(msg.ref());
 ```
 
 * TS: ts types
-
 * CPP: c++ types
 
-## Api
+#### [API DOCS](https://deskbtm.github.io/win32-ffi/)
 
-### [DOCS](https://sewerganger.github.io/win-win-api/)
+### Notice
 
-## Notice
+* If you can't get the certain C++ parameter types, you can create a file and rewrite this function
 
-* If you can't get certain C++ parameter types, you can create a file and rewrite this function
-
-``` ts
+```ts
 overwrite.ts
 
 import { CPP, ref } from 'win-win-api';
@@ -81,7 +72,7 @@ export const customFns = {
 };
 ```
 
-``` ts
+```ts
 index.ts
 
 import { customFns } from './overwrite';
@@ -92,14 +83,15 @@ WinWin.overwrite({ user32Fns: customFns });
 * ***It is impossible to include all win api. If there is no prompt, it means you need to define it yourself.***
 
 ## Tutorial
+
 <br>
 * Since ffi cannot use the macro function of c++ #define, MAKEWPARAM, MAKELPARAM, etc. can only realize the operation of the numbers. For details, please refer to the document of \*\_macro\_fns.ts\`
 
-``` ts
+```ts
 export const MAKELONG = (a: number, b: number): number => (a & 0xfff) | ((b & 0xfff) << 16);
 ```
 
-- - -
+---
 
 <br>
 
@@ -107,22 +99,23 @@ export const MAKELONG = (a: number, b: number): number => (a & 0xfff) | ((b & 0x
 
 c++
 
-``` cpp
+```cpp
 MOUSEHOOKSTRUCT* mouse = (MOUSEHOOKSTRUCT*)(lParam)
 ```
 
 ts
 
-``` ts
+```ts
 ffi.Callback(CPP.LRESULT, [CPP.INT, CPP.WPARAM, ref.refType(CPP.MOUSEHOOKSTRUCT)],(nCode: TS.INT, wParam: TS.WPARAM, lParam: TS.RefStruct) => {})
 ```
 
-- - -
+---
+
 <br>
 
 - Create thread
 
-``` ts
+```ts
 const { WinWin, ffi, CPP, L, NULL } = require('win-win-api');
 
 const { CreateThread, MessageBoxW } = new WinWin().winFns();
@@ -136,13 +129,13 @@ CreateThread(null, 0, proc, NULL, 0, NULL);
 
 - Create Hook
 
-``` ts
+```ts
 const _createMouseHookProc = () => ffi.Callback(CPP.LRESULT, [CPP.INT, CPP.WPARAM, ref.refType(CPP.StructMOUSEHOOKSTRUCT)],
 		(nCode: TS.INT, wParam: TS.WPARAM, lParam: TS.RefStruct) => {
 			const mouse: TS.MOUSEHOOKSTRUCT = lParam.deref();
 			const pt = mouse.pt;
 			const { x, y } = pt;
-			const currentHwnd = WindowFromPoint(mouse.pt);	
+			const currentHwnd = WindowFromPoint(mouse.pt);
 
 			return CallNextHookEx(0, nCode, wParam, lParam); // need overwrite
 		}

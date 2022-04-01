@@ -1,9 +1,8 @@
-
-import { TsWin32Fns, User32Fns, Kernel32Fns, FfiWin32Fns } from "./ts";
-import { userMacroFns } from "./cpp/user32/user_macro_fns";
+import { TsWin32Fns, User32Fns, Kernel32Fns, FfiWin32Fns } from './ts';
+import { userMacroFns } from './cpp/user32/user_macro_fns';
 import * as ffi from 'ffi-napi';
 import { user32Fns } from './cpp/user32';
-import { kernel32Fns } from "./cpp/kernel32";
+import { kernel32Fns } from './cpp/kernel32';
 
 interface WinWinOptions {
 	unicode: boolean;
@@ -23,28 +22,30 @@ export enum LibraryNames {
 
 let overwriteOptions: OverwriteOptions = {
 	user32Fns: {},
-	kernel32Fns: {}
+	kernel32Fns: {},
 };
 
 const initialOptions = { unicode: true };
 
 export class WinWin {
-
 	/**
 	 * User32 函数合集
-	 * @template T 
-	 * @returns user32 
+	 * @template T
+	 * @returns user32
 	 */
 	// eslint-disable-next-line @typescript-eslint/ban-types
 	public user32<T = {}>(): TsWin32Fns<User32Fns & T> {
-		const fns: TsWin32Fns<User32Fns> = ffi.Library(LibraryNames.user32, Object.assign({}, user32Fns as any, overwriteOptions.user32Fns));
+		const fns: TsWin32Fns<User32Fns> = ffi.Library(
+			LibraryNames.user32,
+			Object.assign({}, user32Fns as any, overwriteOptions.user32Fns)
+		);
 		return Object.assign({}, fns, userMacroFns(fns));
 	}
-	
+
 	/**
 	 * Kernel32 函数集合
-	 * @template T 
-	 * @returns kernel32 
+	 * @template T
+	 * @returns kernel32
 	 */
 	// eslint-disable-next-line @typescript-eslint/ban-types
 	public kernel32<T = {}>(): TsWin32Fns<Kernel32Fns & T> {
@@ -53,8 +54,8 @@ export class WinWin {
 
 	/**
 	 * win32 所有函数集合
-	 * @template T 
-	 * @returns fns 
+	 * @template T
+	 * @returns fns
 	 */
 	// eslint-disable-next-line @typescript-eslint/ban-types
 	public winFns<T = {}>(): TsWin32Fns<WinFns & T> {
@@ -69,8 +70,7 @@ export class WinWin {
 		overwriteOptions = opt;
 	}
 
-	constructor (arg: WinWinOptions = initialOptions) {
+	constructor(arg: WinWinOptions = initialOptions) {
 		!!arg.unicode && (process.env.WIN_ICONV = '_UNICODE_');
 	}
 }
-
