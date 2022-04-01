@@ -1,6 +1,6 @@
 {
 	"name": "win32-ffi",
-	"version": "0.0.6-alpha.2",
+	"version": "0.0.6-alpha.3",
 	"description": "js/ts win32 api base on ffi",
 	"author": "Nawbc <deskbtm@outlook.com>",
 	"homepage": "https://github.com/deskbtm/win32-ffi/",
