@@ -105,7 +105,7 @@ UnhookWindowsHookEx(_mouseHook);
 
 #### More Examples
 
-**[Exmaples](./example) Tests**
+**[Exmaples](./example)**
 
 ### [API DOCS](https://deskbtm.github.io/win32-ffi/)
 
