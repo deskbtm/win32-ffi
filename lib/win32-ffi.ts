@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { TsWin32Fns, User32Fns, Kernel32Fns, FfiWin32Fns } from './ts';
 import { userMacroFns } from './cpp/user32/user_macro_fns';
-import * as ffi from 'ffi-napi';
 import { user32Fns } from './cpp/user32';
 import { kernel32Fns } from './cpp/kernel32';
+import { SecureLibrary } from './library';
 
 interface WinWinOptions {
 	unicode: boolean;
@@ -21,7 +21,7 @@ export enum LibraryNames {
 	kernel32 = 'Kernel32',
 }
 
-let overwriteOptions: SupportLibs = {
+let overrideOptions: SupportLibs = {
 	user32Fns: {},
 	kernel32Fns: {},
 };
@@ -45,9 +45,9 @@ export class Win32ffi {
 	 */
 	// eslint-disable-next-line @typescript-eslint/ban-types
 	public user32<T = {}>(): TsWin32Fns<User32Fns & T> {
-		const fns: TsWin32Fns<User32Fns> = ffi.Library(
+		const fns: TsWin32Fns<User32Fns> = SecureLibrary(
 			LibraryNames.user32,
-			Object.assign({}, user32Fns as any, overwriteOptions.user32Fns)
+			Object.assign({}, user32Fns as any, overrideOptions.user32Fns)
 		);
 		return Object.assign({}, fns, userMacroFns(fns));
 	}
@@ -58,7 +58,7 @@ export class Win32ffi {
 	 * @returns kernel32
 	 */
 	public kernel32<T = Record<string, any>>(): TsWin32Fns<Kernel32Fns & T> {
-		return ffi.Library(LibraryNames.kernel32, Object.assign({}, kernel32Fns, overwriteOptions.kernel32Fns));
+		return SecureLibrary(LibraryNames.kernel32, Object.assign({}, kernel32Fns, overrideOptions.kernel32Fns));
 	}
 
 	/**
@@ -74,7 +74,7 @@ export class Win32ffi {
 	 * 自定义原生函数
 	 * @param opt [SupportLibs]
 	 */
-	static assign(opt: SupportLibs = overwriteOptions): void {
-		overwriteOptions = opt;
+	static assign(opt: SupportLibs = overrideOptions): void {
+		overrideOptions = opt;
 	}
 }

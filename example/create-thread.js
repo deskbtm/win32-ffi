@@ -1,5 +1,11 @@
 const { Win32ffi, ffi, CPP, L, NULL } = require('../dist');
 
+Win32ffi.assign({
+	user32Fns: {
+		demo: [],
+	},
+});
+
 const { CreateThread, MessageBoxW } = new Win32ffi().winFns();
 
 const proc = ffi.Callback(CPP.INT, [CPP.PVOID], (...d) => {

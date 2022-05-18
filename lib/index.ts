@@ -33,3 +33,5 @@ export * as ffi from 'ffi-napi';
  * @see https://www.npmjs.com/package/ref-struct-di
  */
 export { StructType, ref, NULL, NULL_POINTER };
+
+export * from './library';
