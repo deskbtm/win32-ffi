@@ -2,11 +2,11 @@
 
 win32 api binding for js/ts that powered by node-ffi
 
-### Install
+## Install
 
 `npm i win32-ffi`/`yarn add win32-ffi`
 
-### Tutorial
+## Tutorial
 
 <br>
 
@@ -36,7 +36,7 @@ ffi.Callback(CPP.LRESULT, [CPP.INT, CPP.WPARAM, ref.refType(CPP.MOUSEHOOKSTRUCT)
 
 ---
 
-#### Electron
+### Electron
 
 ```ts
 
@@ -63,7 +63,7 @@ SetWindowPos(decimalHwnd, 0, 0, 0, 100, 100, CPP.SWP_NOZORDER);
 
 ```
 
-#### Samples
+### Samples
 
 - Create thread
 
@@ -103,7 +103,7 @@ UnhookWindowsHookEx(_mouseHook);
 
 ```
 
-#### More Examples
+### More Examples
 
 **[Exmaples](./example)**
 
@@ -185,6 +185,6 @@ Win32ffi.assign({ user32Fns: customFns });
 * win32-ffi does not include Comctl32, because almost all macro-defined functions, but you can use `SendMessage` to achieve, win32ffi provides
 * **It is impossible to include all win32 api. If there is no prompt, it means you need to define it by yourself. And you can get type details from visual studio.**
 
-# License
+## License
 
 The scripts and documentation in this project are released under the [Apache 2.0 License](./LICENSE)
