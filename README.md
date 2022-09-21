@@ -1,12 +1,12 @@
 ## win32-ffi
 
-win32 api binding for js/ts that powered by node-ffi
+win32 api binding for nodejs
 
 ## Install
 
 `npm i win32-ffi`/`yarn add win32-ffi`
 
-## Tutorial
+## Usage
 
 <br>
 
