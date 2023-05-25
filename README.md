@@ -42,20 +42,19 @@ ffi.Callback(CPP.LRESULT, [CPP.INT, CPP.WPARAM, ref.refType(CPP.MOUSEHOOKSTRUCT)
 
 // get system endianness, cast Buffer to decimal
 const bufferCastInt32 = function (buf: Buffer): number {
-	return os.endianness() == "LE" ?
-		buf.readInt32LE() : buf.readInt32BE();
+ return os.endianness() == "LE" ? buf.readInt32LE() : buf.readInt32BE();
 };
 
 const mainWindow = new BrowserWindow({
-	frame: false,
-	transparent: true,
-	webPreferences: {
-		nodeIntegration: true,
-		webSecurity: false,
-		webviewTag: true,
-		sandbox: false,
-		enableRemoteModule: true 
-	}
+ frame: false,
+ transparent: true,
+ webPreferences: {
+  nodeIntegration: true,
+  webSecurity: false,
+  webviewTag: true,
+  sandbox: false,
+  enableRemoteModule: true 
+ }
 });
 
 const decimalHwnd = bufferCastInt32(mainWindow.getNativeWindowHandle());
@@ -73,7 +72,7 @@ const { Win32ffi, ffi, CPP, L, NULL } = require('win32-ffi');
 const { CreateThread, MessageBoxW } = new Win32ffi().winFns();
 
 const proc = ffi.Callback(CPP.INT, [CPP.PVOID], () => {
-	MessageBoxW(0, L("exmpale"), null, CPP.MB_OK | CPP.MB_ICONEXCLAMATION);
+ MessageBoxW(0, L("exmpale"), null, CPP.MB_OK | CPP.MB_ICONEXCLAMATION);
 });
 
 CreateThread(null, 0, proc, NULL, 0, NULL);
@@ -83,24 +82,24 @@ CreateThread(null, 0, proc, NULL, 0, NULL);
 
 ```ts
 const _createMouseHookProc = () => ffi.Callback(CPP.LRESULT, [CPP.INT, CPP.WPARAM, ref.refType(CPP.StructMOUSEHOOKSTRUCT)],
-		(nCode: TS.INT, wParam: TS.WPARAM, lParam: TS.RefStruct) => {
-			const mouse: TS.MOUSEHOOKSTRUCT = lParam.deref();
-			const pt = mouse.pt;
-			const { x, y } = pt;
-			const currentHwnd = WindowFromPoint(mouse.pt);
-
-			return CallNextHookEx(0, nCode, wParam, lParam); // need overwrite
-		}
-	)
-const _mouseHook = SetWindowsHookExW(CPP.WH_MOUSE_LL, this._createMouseHookProc(), 0, 0);
- const msg: TS.RefStruct = new CPP.StructMSG();
- while (GetMessageW(msg.ref(), 0, 0, 0) && this._trigger) {
- 	TranslateMessage(msg.ref());
- 	DispatchMessageW(msg.ref());
+ (nCode: TS.INT, wParam: TS.WPARAM, lParam: TS.RefStruct) => {
+  const mouse: TS.MOUSEHOOKSTRUCT = lParam.deref();
+  const pt = mouse.pt;
+  const { x, y } = pt;
+  const currentHwnd = WindowFromPoint(mouse.pt);
+  return CallNextHookEx(0, nCode, wParam, lParam); // need overwrite
  }
+)
+
+const _mouseHook = SetWindowsHookExW(CPP.WH_MOUSE_LL, this._createMouseHookProc(), 0, 0);
+const msg: TS.RefStruct = new CPP.StructMSG();
+
+while (GetMessageW(msg.ref(), 0, 0, 0) && this._trigger) {
+ TranslateMessage(msg.ref());
+ DispatchMessageW(msg.ref());
+}
 
 UnhookWindowsHookEx(_mouseHook);
-
 ```
 
 ### More Examples
@@ -123,8 +122,8 @@ const winFns = win32ffi.winFns(); // include user32 and kernel32
 
 const _createEnumWindowProc = () => ffi.Callback(CPP.BOOL, [CPP.HWND, CPP.LPARAM],
  (hWnd: TS.HWND) => {
-	......
-	return true;
+ ......
+ return true;
 });
 
 winFns.EnumWindows(this._createEnumWindowProc(), 0);
@@ -148,12 +147,12 @@ import {ref, StructType,CPP} from 'win32-ffi';
 const Struct = StructType(ref);
 
 const MSG = Struct({
-	hwnd: CPP.HWND,
-	message: CPP.UINT,
-	wParam: CPP.WPARAM,
-	lParam: CPP.LPARAM,
-	time: CPP.DWORD,
-	pt: CPP.POINT
+  hwnd: CPP.HWND,
+  message: CPP.UINT,
+  wParam: CPP.WPARAM,
+  lParam: CPP.LPARAM,
+  time: CPP.DWORD,
+  pt: CPP.POINT
 });
 const msg = new MSG();
 console.log(msg.ref());
@@ -171,7 +170,7 @@ overwrite.ts
 
 import { CPP, ref } from 'win32-ffi';
 export const customFns = {
-	CallNextHookEx: [CPP.LRESULT, [CPP.HHOOK, CPP.INT, CPP.WPARAM, ref.refType(CPP.MOUSEHOOKSTRUCT)]]
+ CallNextHookEx: [CPP.LRESULT, [CPP.HHOOK, CPP.INT, CPP.WPARAM, ref.refType(CPP.MOUSEHOOKSTRUCT)]]
 };
 ```
 
