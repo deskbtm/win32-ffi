@@ -1,20 +1,9 @@
 import { HANDLE, VOID, PHANDLE, PCWSTR } from '../user32/win_nt';
 import { LPSECURITY_ATTRIBUTES, LPTHREAD_START_ROUTINE } from '../user32/win_base';
-import {
-	LPVOID,
-	DWORD,
-	LPDWORD,
-	BOOL,
-	UINT,
-	INT,
-	HRESULT,
-	PULONG,
-} from '../user32/win_def';
+import { LPVOID, DWORD, LPDWORD, BOOL, UINT, INT, HRESULT, PULONG } from '../user32/win_def';
 import { SIZE_T } from '../user32/base_tsd';
 
 export const processThreadsApiFns = {
-	CreateThread: [HANDLE, [LPSECURITY_ATTRIBUTES, SIZE_T, LPTHREAD_START_ROUTINE, LPVOID, DWORD, LPDWORD]],
-	ExitThread: [VOID, [DWORD]],
 	// CreateProcessA: [
 	// 	BOOL,
 	// 	[
@@ -93,10 +82,14 @@ export const processThreadsApiFns = {
 	// SetProcessShutdownParameters: [BOOL, [DWORD, DWORD]],
 	// SetProtectedPolicy: [BOOL, [LPCGUID, ULONG_PTR, PULONG_PTR]],
 	// SetThreadContext: [BOOL, [HANDLE, CONST, CONTEXT]],
-	SetThreadDescription: [HRESULT, [HANDLE, PCWSTR]],
-	SetThreadIdealProcessor: [DWORD, [HANDLE, DWORD]],
 	// SetThreadIdealProcessorEx: [BOOL, [HANDLE, PPROCESSOR_NUMBER, PPROCESSOR_NUMBER]],
 	// SetThreadInformation: [BOOL, [HANDLE, THREAD_INFORMATION_CLASS, LPVOID, DWORD]],
+	// TlsAlloc: [DWORD, [\placeholder]],
+	// UpdateProcThreadAttribute: [BOOL, [LPPROC_THREAD_ATTRIBUTE_LIST, DWORD, DWORD_PTR, PVOID, SIZE_T, PVOID, PSIZE_T]],
+	CreateThread: [HANDLE, [LPSECURITY_ATTRIBUTES, SIZE_T, LPTHREAD_START_ROUTINE, LPVOID, DWORD, LPDWORD]],
+	ExitThread: [VOID, [DWORD]],
+	SetThreadDescription: [HRESULT, [HANDLE, PCWSTR]],
+	SetThreadIdealProcessor: [DWORD, [HANDLE, DWORD]],
 	SetThreadPriority: [BOOL, [HANDLE, INT]],
 	SetThreadPriorityBoost: [BOOL, [HANDLE, BOOL]],
 	SetThreadStackGuarantee: [BOOL, [PULONG]],
@@ -105,9 +98,7 @@ export const processThreadsApiFns = {
 	SwitchToThread: [BOOL, []],
 	TerminateProcess: [BOOL, [HANDLE, UINT]],
 	TerminateThread: [BOOL, [HANDLE, DWORD]],
-	// TlsAlloc: [DWORD, [\placeholder]],
 	TlsFree: [BOOL, [DWORD]],
 	TlsGetValue: [LPVOID, [DWORD]],
 	TlsSetValue: [BOOL, [DWORD, LPVOID]],
-	// UpdateProcThreadAttribute: [BOOL, [LPPROC_THREAD_ATTRIBUTE_LIST, DWORD, DWORD_PTR, PVOID, SIZE_T, PVOID, PSIZE_T]],
 };

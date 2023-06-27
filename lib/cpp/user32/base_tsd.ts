@@ -1,5 +1,5 @@
-import { arch } from "../utils";
-import { _UINT_PTR, _LONG_PTR } from "./win_common";
+import { arch } from '../utils';
+import { _UINT_PTR, _LONG_PTR } from './win_common';
 
 export const UINT_PTR = _UINT_PTR;
 export const PUINT_PTR = ['uint64*', 'uint*'][arch()];
@@ -64,4 +64,3 @@ export const PSIZE_T = 'size_t*';
 export const PSSIZE_T = 'size_t*';
 export const SSIZE_T = _LONG_PTR;
 export const SIZE_T = ULONG_PTR;
-

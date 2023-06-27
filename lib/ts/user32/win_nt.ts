@@ -1,4 +1,4 @@
-import { WORD, DWORD, BYTE, PDWORD } from "./win_def";
+import { WORD, DWORD, BYTE, PDWORD } from './win_def';
 import { Pointer, BigIntString } from '../common';
 
 export type TBYTE = string | number;
@@ -53,11 +53,10 @@ export type USN = LONGLONG;
 export type PULONG = Pointer;
 
 /**
- *			
+ *
  */
 
 export type ACCESS_MASK = DWORD;
 
 export type PSECURITY_INFORMATION = Pointer;
 export type PSECURITY_DESCRIPTOR = PVOID;
-

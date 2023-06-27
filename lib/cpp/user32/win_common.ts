@@ -1,8 +1,8 @@
 /*
- *   Copyright (c) 2021 
+ *   Copyright (c) 2021
  *   All rights reserved.
  */
-import { arch } from "../utils";
+import { arch } from '../utils';
 
 export const _BOOL = 'int';
 
@@ -15,7 +15,7 @@ export const _PDWORD = 'uint32*';
 export const _BYTE = 'uchar';
 
 /**
- *	
+ *
  */
 
 export const _DECLARE_HANDLE = ['uint64', 'uint32'][arch()];

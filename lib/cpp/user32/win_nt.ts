@@ -1,11 +1,11 @@
 /*
- *   Copyright (c) 2021 
+ *   Copyright (c) 2021
  *   All rights reserved.
  */
 
 import { _LONG, _WORD, _DWORD, _PDWORD, _BYTE } from './win_common';
 
-import { arch, iconv } from "../utils";
+import { arch, iconv } from '../utils';
 
 export const TBYTE = ['ushort', 'uchar'][arch()];
 export const PTBYTE = ['ushort*', 'uchar*'][arch()];
@@ -65,4 +65,3 @@ export const PSECURITY_DESCRIPTOR = _DWORD;
 
 export const PSECURITY_INFORMATION = 'uint*';
 // export const USN = LONGLONG;
-

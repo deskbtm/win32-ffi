@@ -5,11 +5,11 @@ import { user32Fns } from './cpp/user32';
 import { kernel32Fns } from './cpp/kernel32';
 import { SecureLibrary } from './library';
 
-interface WinWinOptions {
+interface FFIOptions {
 	unicode: boolean;
 }
 
-interface SupportLibs {
+interface WindowsLibs {
 	user32Fns?: FfiWin32Fns;
 	kernel32Fns?: FfiWin32Fns;
 }
@@ -21,25 +21,25 @@ export enum LibraryNames {
 	kernel32 = 'Kernel32',
 }
 
-let overrideOptions: SupportLibs = {
+let overrideOptions: WindowsLibs = {
 	user32Fns: {},
 	kernel32Fns: {},
 };
 
-const initialOptions = {
+const defaultOptions = {
 	/**
-	 * unciode为false, 则使用ascii
+	 * false ascii
 	 * @see {@link https://docs.microsoft.com/en-us/windows/win32/learnwin32/working-with-strings}
 	 */
 	unicode: true,
 };
 
 export class Win32ffi {
-	constructor(arg: WinWinOptions = initialOptions) {
+	constructor(arg: FFIOptions = defaultOptions) {
 		!!arg.unicode && (process.env.WIN_ICONV = '_UNICODE_');
 	}
 	/**
-	 * User32 函数合集
+	 * User32
 	 * @template T
 	 * @returns user32
 	 */
@@ -53,7 +53,7 @@ export class Win32ffi {
 	}
 
 	/**
-	 * Kernel32 函数集合
+	 * Kernel32
 	 * @template T
 	 * @returns kernel32
 	 */
@@ -62,7 +62,7 @@ export class Win32ffi {
 	}
 
 	/**
-	 * win32 所有函数集合
+	 * win32 Api
 	 * @template T
 	 * @returns fns
 	 */
@@ -71,10 +71,9 @@ export class Win32ffi {
 	}
 
 	/**
-	 * 自定义原生函数
-	 * @param opt [SupportLibs]
+	 * @param opt [WindowsLibs]
 	 */
-	static assign(opt: SupportLibs = overrideOptions): void {
+	static assign(opt: WindowsLibs = overrideOptions): void {
 		overrideOptions = opt;
 	}
 }

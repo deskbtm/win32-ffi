@@ -1,35 +1,34 @@
-
-import { Pointer } from "../common";
-import { HWND, UINT, WPARAM, LPARAM, DWORD, POINT } from "./win_def";
-import { ULONG_PTR } from "./base_tsd";
+import { Pointer } from '../common';
+import { HWND, UINT, WPARAM, LPARAM, DWORD, POINT } from './win_def';
+import { ULONG_PTR } from './base_tsd';
 
 export type LPMSG = Pointer;
 export type MSG = {
-	hwnd: HWND,
-	message: UINT,
-	wParam: WPARAM,
-	lParam: LPARAM,
-	time: DWORD,
-	pt: POINT
+	hwnd: HWND;
+	message: UINT;
+	wParam: WPARAM;
+	lParam: LPARAM;
+	time: DWORD;
+	pt: POINT;
 };
 
 export type MOUSEHOOKSTRUCT = {
-	pt: POINT,
-	hwnd: HWND,
-	wHitTestCode: UINT,
-	dwExtraInfo: ULONG_PTR
+	pt: POINT;
+	hwnd: HWND;
+	wHitTestCode: UINT;
+	dwExtraInfo: ULONG_PTR;
 };
 
 export type MOUSEHOOKSTRUCTEX = {
-	mouseData: DWORD
+	mouseData: DWORD;
 };
 
 export type KBDLLHOOKSTRUCT = {
-	vkCode: DWORD,
-	scanCode: DWORD,
-	flags: DWORD,
-	time: DWORD,
-	dwExtraInfo: ULONG_PTR
+	vkCode: DWORD;
+	scanCode: DWORD;
+	flags: DWORD;
+	time: DWORD;
+	dwExtraInfo: ULONG_PTR;
 };
 
 export type PBSMINFO = Pointer;
@@ -163,4 +162,3 @@ export type LPCMENUITEMINFOA = Pointer;
 export type LPCMENUITEMINFOW = Pointer;
 
 export type LPPAINTSTRUCT = Pointer;
-

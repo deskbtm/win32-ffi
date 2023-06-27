@@ -1,15 +1,38 @@
-import { TsWin32FnsBasic } from "../common";
+import { TsWin32FnsBasic } from '../common';
 
 export interface LibLoaderApiFns extends TsWin32FnsBasic {
 	AddDllDirectory: (NewDirectory: any) => any;
 	DisableThreadLibraryCalls: (hLibModule: any) => any;
-	EnumResourceLanguagesExA: (hModule: any, lpType: any, lpName: any, lpEnumFunc: any, lParam: any, dwFlags: any, LangId: any) => any;
-	EnumResourceLanguagesExW: (hModule: any, lpType: any, lpName: any, lpEnumFunc: any, lParam: any, dwFlags: any, LangId: any) => any;
+	EnumResourceLanguagesExA: (
+		hModule: any,
+		lpType: any,
+		lpName: any,
+		lpEnumFunc: any,
+		lParam: any,
+		dwFlags: any,
+		LangId: any
+	) => any;
+	EnumResourceLanguagesExW: (
+		hModule: any,
+		lpType: any,
+		lpName: any,
+		lpEnumFunc: any,
+		lParam: any,
+		dwFlags: any,
+		LangId: any
+	) => any;
 	EnumResourceNamesExA: (hModule: any, lpType: any, lpEnumFunc: any, lParam: any, dwFlags: any, LangId: any) => any;
 	EnumResourceNamesExW: (hModule: any, lpType: any, lpEnumFunc: any, lParam: any, dwFlags: any, LangId: any) => any;
 	EnumResourceTypesExA: (hModule: any, lpEnumFunc: any, lParam: any, dwFlags: any, LangId: any) => any;
 	EnumResourceTypesExW: (hModule: any, lpEnumFunc: any, lParam: any, dwFlags: any, LangId: any) => any;
-	FindStringOrdinal: (dwFindStringOrdinalFlags: any, lpStringSource: any, cchSource: any, lpStringValue: any, cchValue: any, bIgnoreCase: any) => any;
+	FindStringOrdinal: (
+		dwFindStringOrdinalFlags: any,
+		lpStringSource: any,
+		cchSource: any,
+		lpStringValue: any,
+		cchValue: any,
+		bIgnoreCase: any
+	) => any;
 	FreeLibrary: (hLibModule: any) => any;
 	FreeLibraryAndExitThread: (hLibModule: any, dwExitCode: any) => any;
 	FreeResource: (hResData: any) => any;

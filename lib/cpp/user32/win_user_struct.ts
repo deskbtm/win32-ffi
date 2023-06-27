@@ -1,13 +1,5 @@
 import { HWND, UINT, WPARAM, LPARAM, POINT } from './win_def';
-/**
- *			AUTHOR --- sewerganger <wanghan9423@outlook.com>
- *			LICENSE --- MIT
- *			LASTMODIFY --- 2020-07-01T15:35:49.199Z
- *			DESCRIPTION --- TODO: description
- *			REPOSITORY --- git+https://github.com/sewerganger/shadow.git
- */
-
-import { DWORD } from "./win_def";
+import { DWORD } from './win_def';
 import * as ref from 'ref-napi';
 import StructDi = require('ref-struct-di');
 import { LONG } from './win_nt';
@@ -17,7 +9,7 @@ const Struct = StructDi(ref);
 
 /**
  *			Contains status information for the application - switching(ALT + TAB) window.
- *			https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/ns-winuser-alttabinfo 
+ *			https://docs.microsoft.com/zh-cn/windows/win32/api/winuser/ns-winuser-alttabinfo
  */
 
 // export const Tag_ALTTABINFO = {
@@ -36,7 +28,7 @@ export const tagRECT = {
 	left: LONG,
 	top: LONG,
 	right: LONG,
-	bottom: LONG
+	bottom: LONG,
 };
 export const RECT = 'pointer';
 export const StructRECT = Struct(tagRECT);
@@ -47,7 +39,7 @@ export const tagMSG = {
 	wParam: WPARAM,
 	lParam: LPARAM,
 	time: DWORD,
-	pt: POINT
+	pt: POINT,
 };
 
 export const StructMSG = Struct(tagMSG);
@@ -57,14 +49,14 @@ export const tagMOUSEHOOKSTRUCT = {
 	pt: POINT,
 	hwnd: HWND,
 	wHitTestCode: UINT,
-	dwExtraInfo: ULONG_PTR
+	dwExtraInfo: ULONG_PTR,
 };
 export const MOUSEHOOKSTRUCT = 'pointer';
 export const StructMOUSEHOOKSTRUCT = Struct(tagMOUSEHOOKSTRUCT);
 
 export const tagMOUSEHOOKSTRUCTEX = {
 	mouseData: DWORD,
-	...tagMOUSEHOOKSTRUCT
+	...tagMOUSEHOOKSTRUCT,
 };
 
 export const MOUSEHOOKSTRUCTEX = 'pointer';
@@ -75,7 +67,7 @@ export const tagKBDLLHOOKSTRUCT = {
 	scanCode: DWORD,
 	flags: DWORD,
 	time: DWORD,
-	dwExtraInfo: ULONG_PTR
+	dwExtraInfo: ULONG_PTR,
 };
 
 export const KBDLLHOOKSTRUCT = 'pointer';
@@ -224,4 +216,3 @@ export const PICONINFOEXW = 'pointer';
 export const PLASTINPUTINFO = 'pointer';
 
 export const PMENUBARINFO = 'pointer';
-

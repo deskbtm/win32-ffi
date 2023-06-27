@@ -1,4 +1,4 @@
-import { Pointer, BigIntString } from "../common";
+import { Pointer, BigIntString } from '../common';
 
 export type UINT_PTR = number | BigIntString;
 export type PUINT_PTR = Pointer;
@@ -63,4 +63,3 @@ export type PSIZE_T = Pointer;
 export type PSSIZE_T = Pointer;
 export type SSIZE_T = LONG_PTR;
 export type SIZE_T = ULONG_PTR;
-

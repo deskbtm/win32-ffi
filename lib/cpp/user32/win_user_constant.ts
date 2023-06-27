@@ -1,4 +1,3 @@
-
 export const WM_MOUSEFIRST = 0x0200;
 export const WM_MOUSEMOVE = 0x0200;
 export const WM_LBUTTONDOWN = 0x0201;
@@ -10,7 +9,7 @@ export const WM_RBUTTONDBLCLK = 0x0206;
 export const WM_MBUTTONDOWN = 0x0207;
 export const WM_MBUTTONUP = 0x0208;
 export const WM_MBUTTONDBLCLK = 0x0209;
-export const WM_MOUSEWHEEL = 0x020A;
+export const WM_MOUSEWHEEL = 0x020a;
 
 export const WH_KEYBOARD_LL = 13;
 export const WH_MOUSE_LL = 14;
@@ -65,12 +64,12 @@ export const SWP_NOMOVE = 0x0002;
 export const SWP_NOZORDER = 0x0004;
 export const SWP_NOREDRAW = 0x0008;
 export const SWP_NOACTIVATE = 0x0010;
-export const SWP_FRAMECHANGED = 0x0020;  /* The frame changed: send WM_NCCALCSIZE */
+export const SWP_FRAMECHANGED = 0x0020; /* The frame changed: send WM_NCCALCSIZE */
 export const SWP_SHOWWINDOW = 0x0040;
 export const SWP_HIDEWINDOW = 0x0080;
 export const SWP_NOCOPYBITS = 0x0100;
-export const SWP_NOOWNERZORDER = 0x0200;  /* Don't do owner Z ordering */
-export const SWP_NOSENDCHANGING = 0x0400;  /* Don't send WM_WINDOWPOSCHANGING */
+export const SWP_NOOWNERZORDER = 0x0200; /* Don't do owner Z ordering */
+export const SWP_NOSENDCHANGING = 0x0400; /* Don't send WM_WINDOWPOSCHANGING */
 
 export const SWP_DRAWFRAME = SWP_FRAMECHANGED;
 export const SWP_NOREPOSITION = SWP_NOOWNERZORDER;
@@ -79,10 +78,10 @@ export const SWP_NOREPOSITION = SWP_NOOWNERZORDER;
  *   MW_USER WINVER>400
  */
 
-export const WM_IME_STARTCOMPOSITION = 0x010D;
-export const WM_IME_ENDCOMPOSITION = 0x010E;
-export const WM_IME_COMPOSITION = 0x010F;
-export const WM_IME_KEYLAST = 0x010F;
+export const WM_IME_STARTCOMPOSITION = 0x010d;
+export const WM_IME_ENDCOMPOSITION = 0x010e;
+export const WM_IME_COMPOSITION = 0x010f;
+export const WM_IME_KEYLAST = 0x010f;
 export const WM_INITDIALOG = 0x0110;
 export const WM_COMMAND = 0x0111;
 export const WM_SYSCOMMAND = 0x0112;
@@ -99,27 +98,26 @@ export const WM_INITMENUPOPUP = 0x0117;
 /*
  * System Menu Command Values
  */
-export const SC_SIZE = 0xF000;
-export const SC_MOVE = 0xF010;
-export const SC_MINIMIZE = 0xF020;
-export const SC_MAXIMIZE = 0xF030;
-export const SC_NEXTWINDOW = 0xF040;
-export const SC_PREVWINDOW = 0xF050;
-export const SC_CLOSE = 0xF060;
-export const SC_VSCROLL = 0xF070;
-export const SC_HSCROLL = 0xF080;
-export const SC_MOUSEMENU = 0xF090;
-export const SC_KEYMENU = 0xF100;
-export const SC_ARRANGE = 0xF110;
-export const SC_RESTORE = 0xF120;
-export const SC_TASKLIST = 0xF130;
-export const SC_SCREENSAVE = 0xF140;
-export const SC_HOTKEY = 0xF150;
-// #if(WINVER >= 0x0400)
-export const SC_DEFAULT = 0xF160;
-export const SC_MONITORPOWER = 0xF170;
-export const SC_CONTEXTHELP = 0xF180;
-export const SC_SEPARATOR = 0xF00F;
+export const SC_SIZE = 0xf000;
+export const SC_MOVE = 0xf010;
+export const SC_MINIMIZE = 0xf020;
+export const SC_MAXIMIZE = 0xf030;
+export const SC_NEXTWINDOW = 0xf040;
+export const SC_PREVWINDOW = 0xf050;
+export const SC_CLOSE = 0xf060;
+export const SC_VSCROLL = 0xf070;
+export const SC_HSCROLL = 0xf080;
+export const SC_MOUSEMENU = 0xf090;
+export const SC_KEYMENU = 0xf100;
+export const SC_ARRANGE = 0xf110;
+export const SC_RESTORE = 0xf120;
+export const SC_TASKLIST = 0xf130;
+export const SC_SCREENSAVE = 0xf140;
+export const SC_HOTKEY = 0xf150;
+export const SC_DEFAULT = 0xf160;
+export const SC_MONITORPOWER = 0xf170;
+export const SC_CONTEXTHELP = 0xf180;
+export const SC_SEPARATOR = 0xf00f;
 
 /**
  *	MessageBox() Flags
@@ -131,20 +129,16 @@ export const MB_ABORTRETRYIGNORE = 0x00000002;
 export const MB_YESNOCANCEL = 0x00000003;
 export const MB_YESNO = 0x00000004;
 export const MB_RETRYCANCEL = 0x00000005;
-// #if(WINVER >= 0x0500)
 export const MB_CANCELTRYCONTINUE = 0x00000006;
-// #endif /* WINVER >= 0x0500 */
 
 export const MB_ICONHAND = 0x00000010;
 export const MB_ICONQUESTION = 0x00000020;
 export const MB_ICONEXCLAMATION = 0x00000030;
 export const MB_ICONASTERISK = 0x00000040;
 
-// #if(WINVER >= 0x0400)
 export const MB_USERICON = 0x00000080;
 export const MB_ICONWARNING = MB_ICONEXCLAMATION;
 export const MB_ICONERROR = MB_ICONHAND;
-// #endif /* WINVER >= 0x0400 */
 
 export const MB_ICONINFORMATION = MB_ICONASTERISK;
 export const MB_ICONSTOP = MB_ICONHAND;
@@ -152,16 +146,12 @@ export const MB_ICONSTOP = MB_ICONHAND;
 export const MB_DEFBUTTON1 = 0x00000000;
 export const MB_DEFBUTTON2 = 0x00000100;
 export const MB_DEFBUTTON3 = 0x00000200;
-// #if(WINVER >= 0x0400)
 export const MB_DEFBUTTON4 = 0x00000300;
-// #endif /* WINVER >= 0x0400 */
 
 export const MB_APPLMODAL = 0x00000000;
 export const MB_SYSTEMMODAL = 0x00001000;
 export const MB_TASKMODAL = 0x00002000;
-// #if(WINVER >= 0x0400)
 export const MB_HELP = 0x00004000; // Help Butto;
-// #endif /* WINVER >= 0x0400 */
 
 export const MB_NOFOCUS = 0x00008000;
 export const MB_SETFOREGROUND = 0x00010000;
@@ -183,8 +173,8 @@ export const MB_RTLREADING = 0x00100000;
 export const MB_SERVICE_NOTIFICATION_NT3X = 0x00040000;
 // #endif
 
-export const MB_TYPEMASK = 0x0000000F;
-export const MB_ICONMASK = 0x000000F0;
-export const MB_DEFMASK = 0x00000F00;
+export const MB_TYPEMASK = 0x0000000f;
+export const MB_ICONMASK = 0x000000f0;
+export const MB_DEFMASK = 0x00000f00;
 export const MB_MODEMASK = 0x00003000;
-export const MB_MISCMASK = 0x0000C000;
+export const MB_MISCMASK = 0x0000c000;

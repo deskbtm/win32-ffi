@@ -1,9 +1,9 @@
-import { PVOID, VOID } from "./win_nt";
-import { DWORD } from "./win_def";
-import { _DECLARE_HANDLE } from "./win_common";
+import { PVOID, VOID } from './win_nt';
+import { DWORD } from './win_def';
+import { _DECLARE_HANDLE } from './win_common';
 
 /**
- *		Proc		
+ *	Proc
  */
 export const WNDPROC = 'pointer';
 export const DLGPROC = 'pointer';
@@ -23,10 +23,6 @@ export const WINSTAENUMPROCW = 'pointer';
 export const MONITORENUMPROC = 'pointer';
 export const SENDASYNCPROC = 'pointer';
 
-/**
- *			
- */
-
 export const HGESTUREINFO = _DECLARE_HANDLE;
 export const HTOUCHINPUT = _DECLARE_HANDLE;
 export const HRAWINPUT = _DECLARE_HANDLE;
@@ -41,7 +37,7 @@ export const MENUTEMPLATEA = VOID;
 export const MENUTEMPLATEW = VOID;
 
 /**
- *			enum
+ * Enum
  */
 export const POINTER_INPUT_TYPE = DWORD;
 export const POINTER_FEEDBACK_MODE = DWORD;

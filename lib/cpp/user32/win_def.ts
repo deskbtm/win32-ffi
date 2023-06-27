@@ -1,5 +1,4 @@
-
-import { _LONG, _DECLARE_HANDLE, _WORD, _DWORD, _BYTE, _BOOL, _LPVOID, _LONG_PTR, _UINT_PTR } from "./win_common";
+import { _LONG, _DECLARE_HANDLE, _WORD, _DWORD, _BYTE, _BOOL, _LPVOID, _LONG_PTR, _UINT_PTR } from './win_common';
 import * as ref from 'ref-napi';
 import StructType = require('ref-struct-di');
 const Struct = StructType(ref);
@@ -63,7 +62,7 @@ export const HFILE = 'int';
  *			AUTHOR --- sewerganger <wanghan9423@outlook.com>
  *			LASTMODIFY --- 2020-07-01T14:28:50.384Z
  *			BLOCK --- _DECLARE_HANDLE
- *			DESCRIPTION --- 
+ *			DESCRIPTION ---
  */
 
 export const HLOCAL = _DECLARE_HANDLE;
@@ -109,7 +108,7 @@ export const APIENTRY = WINAPI;
  *			AUTHOR --- sewerganger <wanghan9423@outlook.com>
  *			LASTMODIFY --- 2020-07-01T14:28:22.070Z
  *			BLOCK --- PROCEDURE;
- *			DESCRIPTION --- 
+ *			DESCRIPTION ---
  */
 
 export const FARPROC = 'pointer';
@@ -123,19 +122,19 @@ export const WPARAM = _UINT_PTR;
 export const LRESULT = _LONG_PTR;
 
 /**
- *			
+ *
  */
 
 export const tagSIZE = {
 	cx: _LONG,
-	cy: _LONG
+	cy: _LONG,
 };
 
 export const SIZE = Struct(tagSIZE);
 
 export const tagPOINT = {
 	x: _LONG,
-	y: _LONG
+	y: _LONG,
 };
 
 export const POINT = Struct(tagPOINT);

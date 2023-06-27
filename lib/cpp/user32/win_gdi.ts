@@ -1,6 +1,6 @@
 /*
- *   Copyright (c) 2021 
- *   All rights reserved.
+ * Copyright 2021 Han
+ * SPDX-License-Identifier: Apache-2.0
  */
 export const DISPLAYCONFIG_DEVICE_INFO_HEADER = 'pointer';
 export const tagDISPLAYCONFIG_DEVICE_INFO_HEADER = {

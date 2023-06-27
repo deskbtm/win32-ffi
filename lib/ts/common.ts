@@ -1,7 +1,6 @@
-
 /* eslint-disable @typescript-eslint/ban-types */
 /**
- *  for 64bit 
+ *  for 64bit
  */
 /// <reference types="node" />
 import * as ref from 'ref-napi';
@@ -24,7 +23,7 @@ interface _AsyncCallback<P> {
 
 export type TsWin32Fns<T extends TsWin32FnsBasic> = {
 	[P in keyof T]: T[P] & { async: (...args: Array<_AsyncCallback<ReturnType<T[P]>> | Value>) => void };
-}
+};
 
 // export type RefStruct<T> = RefBuffer<T>;
 // fix struct doesn't have ref
@@ -67,36 +66,4 @@ export interface RefBuffer extends _RefBuffer {
 	reinterpretUntilZeros: (size: number, offset?: number) => RefBuffer;
 }
 
-// export interface RefStruct<T = {}> extends RefBuffer {
-
-// }
-
 export type RefStruct<T = {}> = RefBuffer & T;
-
-// fix struct doesn't have ref
-// export interface RefStruct<T = {}> extends TempRefBuffer<T> {
-	// address(buffer: RefBuffer): number;
-	// isNull(buffer: RefBuffer): boolean;
-	// ref(): T;
-	// deref(): T;
-	// deref(buffer: Buffer): any;
-	// readObject(buffer: Buffer, offset?: number): Object;
-	// writeObject(buffer: Buffer, offset: number, object: Object): void;
-	// readPointer(buffer: Buffer, offset?: number,
-	// 	length?: number): Buffer;
-	// writePointer(buffer: Buffer, offset: number,
-	// 	pointer: Buffer): void;
-	// readCString(buffer: Buffer, offset?: number): string;
-	// writeCString(buffer: Buffer, offset: number,
-	// 	string: string, encoding?: string): void;
-	// readInt64BE(buffer: Buffer, offset?: number): any;
-
-	// writeInt64BE(buffer: Buffer, offset: number, input: number): void;
-	// readUInt64BE(buffer: Buffer, offset?: number): any;
-	// writeUInt64BE(buffer: Buffer, offset: number, input: number): void;
-	// readInt64LE(buffer: Buffer, offset?: number): any;
-	// writeInt64LE: typeof writeInt64LE;
-	// reinterpret: typeof reinterpret;
-	// reinterpretUntilZeros: typeof reinterpretUntilZeros;
-	// type?: ref.Type;
-// }

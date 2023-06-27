@@ -1,20 +1,188 @@
 import {
-	UINT, HWND, HKL, BOOL, DWORD, HMENU, UINT_PTR, LPCSTR, LPCWSTR, INT, HDWP, HDC, LPDWORD, WPARAM, LPARAM, LONG, POINT, HHOOK, LPVOID, LPSTR, LPWSTR, WORD, HDESK, HWINSTA, HACCEL, HICON, HANDLE, HBITMAP, HINSTANCE, VOID, ULONG, PVOID, BYTE, PBYTE, HCURSOR, HBRUSH, LPCTSTR, INT_PTR, UINT32,
-	LPTSTR, HRGN, PUINT, COLORREF, LPINT, CHAR, WCHAR, ULONG_PTR, LRESULT, PDWORD_PTR, LONG_PTR, LPBYTE, HOOKPROC, HMODULE, LPWORD, ATOM, SHORT, DISPLAYCONFIG_PATH_INFO, ACCESS_MASK, SIZE, PDISPLAY_DEVICEA, PDISPLAY_DEVICEW, LPCRECT, PSECURITY_INFORMATION, PSECURITY_DESCRIPTOR, PULONG, POINTS, DISPLAYCONFIG_MODE_INFO
-} from ".";
+	UINT,
+	HWND,
+	HKL,
+	BOOL,
+	DWORD,
+	HMENU,
+	UINT_PTR,
+	LPCSTR,
+	LPCWSTR,
+	INT,
+	HDWP,
+	HDC,
+	LPDWORD,
+	WPARAM,
+	LPARAM,
+	LONG,
+	POINT,
+	HHOOK,
+	LPVOID,
+	LPSTR,
+	LPWSTR,
+	WORD,
+	HDESK,
+	HWINSTA,
+	HACCEL,
+	HICON,
+	HANDLE,
+	HBITMAP,
+	HINSTANCE,
+	VOID,
+	ULONG,
+	PVOID,
+	BYTE,
+	PBYTE,
+	HCURSOR,
+	HBRUSH,
+	LPCTSTR,
+	INT_PTR,
+	UINT32,
+	LPTSTR,
+	HRGN,
+	PUINT,
+	COLORREF,
+	LPINT,
+	CHAR,
+	WCHAR,
+	ULONG_PTR,
+	LRESULT,
+	PDWORD_PTR,
+	LONG_PTR,
+	LPBYTE,
+	HOOKPROC,
+	HMODULE,
+	LPWORD,
+	ATOM,
+	SHORT,
+	DISPLAYCONFIG_PATH_INFO,
+	ACCESS_MASK,
+	SIZE,
+	PDISPLAY_DEVICEA,
+	PDISPLAY_DEVICEW,
+	LPCRECT,
+	PSECURITY_INFORMATION,
+	PSECURITY_DESCRIPTOR,
+	PULONG,
+	POINTS,
+	DISPLAYCONFIG_MODE_INFO,
+} from '.';
 import {
-	LPMSG, PBSMINFO, RECT, DEVMODEW, DEVMODEA, PCHANGEFILTERSTRUCT, LPPOINT, LPACCEL, LPRECT, DISPLAYCONFIG_DEVICE_INFO_HEADER,
-	POINTER_DEVICE_INFO, POINTER_DEVICE_CURSOR_INFO, POINTER_DEVICE_PROPERTY, POINTER_PEN_INFO, POINTER_INFO, POINTER_TOUCH_INFO, PICONINFO, LPTRACKMOUSEEVENT, MSG, PAINTSTRUCT, PRAWINPUT, LPDRAWTEXTPARAMS, PGESTURECONFIG, PGUITHREADINFO, PICONINFOEXA, PICONINFOEXW, LPTPMPARAMS, PWINDOWINFO,
-	TOUCH_HIT_TESTING_INPUT, TOUCH_HIT_TESTING_PROXIMITY_EVALUATION, PFLASHWINFO, PALTTABINFO, INPUT_MESSAGE_SOURCE, LPWNDCLASSA, LPWNDCLASSEXA, LPWNDCLASSEXW, LPWNDCLASSW, PCOMBOBOXINFO, PCURSORINFO, PLASTINPUTINFO, PMENUBARINFO, LPMENUINFO,
-	LPMENUITEMINFOW, LPMENUITEMINFOA, LPMONITORINFO, LPMOUSEMOVEPOINT, PTITLEBARINFO, PTOUCHINPUT, PRAWINPUTDEVICELIST, PRAWINPUTDEVICE, PSCROLLBARINFO, LPSCROLLINFO, INPUT_TRANSFORM, WINDOWPLACEMENT, POINTER_TYPE_INFO, BLENDFUNCTION, MSGBOXPARAMSA,
-	MSGBOXPARAMSW, WNDCLASSA, WNDCLASSEXA, WNDCLASSEXW, WNDCLASSW, PCRAWINPUTDEVICE, LPCSCROLLINFO, LPINPUT, LPCMENUINFO, LPCDLGTEMPLATE, LPCDLGTEMPLATEA, LPPAINTSTRUCT, LPCMENUITEMINFOW, LPCMENUITEMINFOA, PGESTUREINFO, LPCDLGTEMPLATEW
+	LPMSG,
+	PBSMINFO,
+	RECT,
+	DEVMODEW,
+	DEVMODEA,
+	PCHANGEFILTERSTRUCT,
+	LPPOINT,
+	LPACCEL,
+	LPRECT,
+	DISPLAYCONFIG_DEVICE_INFO_HEADER,
+	POINTER_DEVICE_INFO,
+	POINTER_DEVICE_CURSOR_INFO,
+	POINTER_DEVICE_PROPERTY,
+	POINTER_PEN_INFO,
+	POINTER_INFO,
+	POINTER_TOUCH_INFO,
+	PICONINFO,
+	LPTRACKMOUSEEVENT,
+	MSG,
+	PAINTSTRUCT,
+	PRAWINPUT,
+	LPDRAWTEXTPARAMS,
+	PGESTURECONFIG,
+	PGUITHREADINFO,
+	PICONINFOEXA,
+	PICONINFOEXW,
+	LPTPMPARAMS,
+	PWINDOWINFO,
+	TOUCH_HIT_TESTING_INPUT,
+	TOUCH_HIT_TESTING_PROXIMITY_EVALUATION,
+	PFLASHWINFO,
+	PALTTABINFO,
+	INPUT_MESSAGE_SOURCE,
+	LPWNDCLASSA,
+	LPWNDCLASSEXA,
+	LPWNDCLASSEXW,
+	LPWNDCLASSW,
+	PCOMBOBOXINFO,
+	PCURSORINFO,
+	PLASTINPUTINFO,
+	PMENUBARINFO,
+	LPMENUINFO,
+	LPMENUITEMINFOW,
+	LPMENUITEMINFOA,
+	LPMONITORINFO,
+	LPMOUSEMOVEPOINT,
+	PTITLEBARINFO,
+	PTOUCHINPUT,
+	PRAWINPUTDEVICELIST,
+	PRAWINPUTDEVICE,
+	PSCROLLBARINFO,
+	LPSCROLLINFO,
+	INPUT_TRANSFORM,
+	WINDOWPLACEMENT,
+	POINTER_TYPE_INFO,
+	BLENDFUNCTION,
+	MSGBOXPARAMSA,
+	MSGBOXPARAMSW,
+	WNDCLASSA,
+	WNDCLASSEXA,
+	WNDCLASSEXW,
+	WNDCLASSW,
+	PCRAWINPUTDEVICE,
+	LPCSCROLLINFO,
+	LPINPUT,
+	LPCMENUINFO,
+	LPCDLGTEMPLATE,
+	LPCDLGTEMPLATEA,
+	LPPAINTSTRUCT,
+	LPCMENUITEMINFOW,
+	LPCMENUITEMINFOA,
+	PGESTUREINFO,
+	LPCDLGTEMPLATEW,
 } from './win_user_struct';
 import {
-	WNDPROC, DLGPROC, HGESTUREINFO, HTOUCHINPUT, POINTER_INPUT_TYPE, HWINEVENTHOOK, WNDENUMPROC, DESKTOPENUMPROCA, DESKTOPENUMPROCW, HSYNTHETICPOINTERDEVICE, POINTER_FEEDBACK_MODE, DRAWSTATEPROC, HDEVNOTIFY, DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, DIALOG_DPI_CHANGE_BEHAVIORS,
-	ORIENTATION_PREFERENCE, TIMERPROC, DPI_AWARENESS_CONTEXT, HPOWERNOTIFY, WINEVENTPROC, GRAYSTRINGPROC, PROPENUMPROCEXA, PROPENUMPROCA, PROPENUMPROCEXW, PROPENUMPROCW, WINSTAENUMPROCA, WINSTAENUMPROCW, MONITORENUMPROC, PAR_STATE, DPI_AWARENESS, HMONITOR, DPI_HOSTING_BEHAVIOR,
-	FEEDBACK_TYPE, HRAWINPUT, MENUTEMPLATEA, MENUTEMPLATEW, DISPLAYCONFIG_TOPOLOGY_ID, SENDASYNCPROC
+	WNDPROC,
+	DLGPROC,
+	HGESTUREINFO,
+	HTOUCHINPUT,
+	POINTER_INPUT_TYPE,
+	HWINEVENTHOOK,
+	WNDENUMPROC,
+	DESKTOPENUMPROCA,
+	DESKTOPENUMPROCW,
+	HSYNTHETICPOINTERDEVICE,
+	POINTER_FEEDBACK_MODE,
+	DRAWSTATEPROC,
+	HDEVNOTIFY,
+	DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS,
+	DIALOG_DPI_CHANGE_BEHAVIORS,
+	ORIENTATION_PREFERENCE,
+	TIMERPROC,
+	DPI_AWARENESS_CONTEXT,
+	HPOWERNOTIFY,
+	WINEVENTPROC,
+	GRAYSTRINGPROC,
+	PROPENUMPROCEXA,
+	PROPENUMPROCA,
+	PROPENUMPROCEXW,
+	PROPENUMPROCW,
+	WINSTAENUMPROCA,
+	WINSTAENUMPROCW,
+	MONITORENUMPROC,
+	PAR_STATE,
+	DPI_AWARENESS,
+	HMONITOR,
+	DPI_HOSTING_BEHAVIOR,
+	FEEDBACK_TYPE,
+	HRAWINPUT,
+	MENUTEMPLATEA,
+	MENUTEMPLATEW,
+	DISPLAYCONFIG_TOPOLOGY_ID,
+	SENDASYNCPROC,
 } from './win_user_type';
-import { LPCGUID } from "./guid_def";
+import { LPCGUID } from './guid_def';
 import { TsWin32FnsBasic, Pointer } from '../common';
 import { LPSECURITY_ATTRIBUTES } from './win_base';
 
@@ -37,10 +205,30 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	BlockInput: (fBlockIt: BOOL) => BOOL;
 	BringWindowToTop: (hWnd: HWND) => BOOL;
 	BroadcastSystemMessage: (flags: DWORD, lpInfo: LPDWORD, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => LONG;
-	BroadcastSystemMessageExA: (flags: DWORD, lpInfo: LPDWORD, Msg: UINT, wParam: WPARAM, lParam: LPARAM, pbsmInfo: PBSMINFO) => LONG;
-	BroadcastSystemMessageExW: (flags: DWORD, lpInfo: LPDWORD, Msg: UINT, wParam: WPARAM, lParam: LPARAM, pbsmInfo: PBSMINFO) => LONG;
+	BroadcastSystemMessageExA: (
+		flags: DWORD,
+		lpInfo: LPDWORD,
+		Msg: UINT,
+		wParam: WPARAM,
+		lParam: LPARAM,
+		pbsmInfo: PBSMINFO
+	) => LONG;
+	BroadcastSystemMessageExW: (
+		flags: DWORD,
+		lpInfo: LPDWORD,
+		Msg: UINT,
+		wParam: WPARAM,
+		lParam: LPARAM,
+		pbsmInfo: PBSMINFO
+	) => LONG;
 	BroadcastSystemMessageW: (flags: DWORD, lpInfo: LPDWORD, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => LONG;
-	CalculatePopupWindowPosition: (anchorPoint: POINT, windowSize: SIZE, flags: UINT, excludeRect: RECT, popupWindowPosition: RECT) => BOOL;
+	CalculatePopupWindowPosition: (
+		anchorPoint: POINT,
+		windowSize: SIZE,
+		flags: UINT,
+		excludeRect: RECT,
+		popupWindowPosition: RECT
+	) => BOOL;
 	CallMsgFilterA: (lpMsg: LPMSG, nCode: INT) => BOOL;
 	CallMsgFilterW: (lpMsg: LPMSG, nCode: INT) => BOOL;
 	CallNextHookEx: (hhk: HHOOK, nCode: INT, wParam: any, lParam: any) => LRESULT;
@@ -49,11 +237,28 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	CascadeWindows: (hwndParent: HWND, wHow: UINT, lpRect: RECT, cKids: UINT, lpKids: HWND) => WORD;
 	ChangeClipboardChain: (hWndRemove: HWND, hWndNewNext: HWND) => BOOL;
 	ChangeDisplaySettingsA: (lpDevMode: DEVMODEA, dwFlags: DWORD) => LONG;
-	ChangeDisplaySettingsExA: (lpszDeviceName: LPCSTR, lpDevMode: DEVMODEA, hwnd: HWND, dwflags: DWORD, lParam: LPVOID) => LONG;
-	ChangeDisplaySettingsExW: (lpszDeviceName: LPCWSTR, lpDevMode: DEVMODEW, hwnd: HWND, dwflags: DWORD, lParam: LPVOID) => LONG;
+	ChangeDisplaySettingsExA: (
+		lpszDeviceName: LPCSTR,
+		lpDevMode: DEVMODEA,
+		hwnd: HWND,
+		dwflags: DWORD,
+		lParam: LPVOID
+	) => LONG;
+	ChangeDisplaySettingsExW: (
+		lpszDeviceName: LPCWSTR,
+		lpDevMode: DEVMODEW,
+		hwnd: HWND,
+		dwflags: DWORD,
+		lParam: LPVOID
+	) => LONG;
 	ChangeDisplaySettingsW: (lpDevMode: DEVMODEW, dwFlags: DWORD) => LONG;
 	ChangeWindowMessageFilter: (message: UINT, dwFlag: DWORD) => BOOL;
-	ChangeWindowMessageFilterEx: (hwnd: HWND, message: UINT, action: DWORD, pChangeFilterStruct: PCHANGEFILTERSTRUCT) => BOOL;
+	ChangeWindowMessageFilterEx: (
+		hwnd: HWND,
+		message: UINT,
+		action: DWORD,
+		pChangeFilterStruct: PCHANGEFILTERSTRUCT
+	) => BOOL;
 	CharLowerA: (lpsz: LPSTR) => LPSTR;
 	CharLowerBuffA: (lpsz: LPSTR, cchLength: DWORD) => DWORD;
 	CharLowerBuffW: (lpsz: LPWSTR, cchLength: DWORD) => DWORD;
@@ -96,36 +301,221 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	CreateAcceleratorTableA: (paccel: LPACCEL, cAccel: INT) => HACCEL;
 	CreateAcceleratorTableW: (paccel: LPACCEL, cAccel: INT) => HACCEL;
 	CreateCaret: (hWnd: HWND, hBitmap: HBITMAP, nWidth: INT, nHeight: INT) => BOOL;
-	CreateCursor: (hInst: HINSTANCE, xHotSpot: INT, yHotSpot: INT, nWidth: INT, nHeight: INT, pvANDPlane: VOID, pvXORPlane: VOID) => HCURSOR;
-	CreateDesktopA: (lpszDesktop: LPCSTR, lpszDevice: LPCSTR, pDevmode: DEVMODEA, dwFlags: DWORD, dwDesiredAccess: ACCESS_MASK, lpsa: LPSECURITY_ATTRIBUTES) => HDESK;
-	CreateDesktopExA: (lpszDesktop: LPCSTR, lpszDevice: LPCSTR, pDevmode: DEVMODEA, dwFlags: DWORD, dwDesiredAccess: ACCESS_MASK, lpsa: LPSECURITY_ATTRIBUTES, ulHeapSize: ULONG, pvoid: PVOID) => HDESK;
-	CreateDesktopExW: (lpszDesktop: LPCWSTR, lpszDevice: LPCWSTR, pDevmode: DEVMODEW, dwFlags: DWORD, dwDesiredAccess: ACCESS_MASK, lpsa: LPSECURITY_ATTRIBUTES, ulHeapSize: ULONG, pvoid: PVOID) => HDESK;
-	CreateDesktopW: (lpszDesktop: LPCWSTR, lpszDevice: LPCWSTR, pDevmode: DEVMODEW, dwFlags: DWORD, dwDesiredAccess: ACCESS_MASK, lpsa: LPSECURITY_ATTRIBUTES) => HDESK;
+	CreateCursor: (
+		hInst: HINSTANCE,
+		xHotSpot: INT,
+		yHotSpot: INT,
+		nWidth: INT,
+		nHeight: INT,
+		pvANDPlane: VOID,
+		pvXORPlane: VOID
+	) => HCURSOR;
+	CreateDesktopA: (
+		lpszDesktop: LPCSTR,
+		lpszDevice: LPCSTR,
+		pDevmode: DEVMODEA,
+		dwFlags: DWORD,
+		dwDesiredAccess: ACCESS_MASK,
+		lpsa: LPSECURITY_ATTRIBUTES
+	) => HDESK;
+	CreateDesktopExA: (
+		lpszDesktop: LPCSTR,
+		lpszDevice: LPCSTR,
+		pDevmode: DEVMODEA,
+		dwFlags: DWORD,
+		dwDesiredAccess: ACCESS_MASK,
+		lpsa: LPSECURITY_ATTRIBUTES,
+		ulHeapSize: ULONG,
+		pvoid: PVOID
+	) => HDESK;
+	CreateDesktopExW: (
+		lpszDesktop: LPCWSTR,
+		lpszDevice: LPCWSTR,
+		pDevmode: DEVMODEW,
+		dwFlags: DWORD,
+		dwDesiredAccess: ACCESS_MASK,
+		lpsa: LPSECURITY_ATTRIBUTES,
+		ulHeapSize: ULONG,
+		pvoid: PVOID
+	) => HDESK;
+	CreateDesktopW: (
+		lpszDesktop: LPCWSTR,
+		lpszDevice: LPCWSTR,
+		pDevmode: DEVMODEW,
+		dwFlags: DWORD,
+		dwDesiredAccess: ACCESS_MASK,
+		lpsa: LPSECURITY_ATTRIBUTES
+	) => HDESK;
 	CreateDialogA: (hInstance: HINSTANCE, lpName: LPCTSTR, hWndParent: HWND, lpDialogFunc: DLGPROC) => VOID;
-	CreateDialogIndirectA: (hInstance: HINSTANCE, lpTemplate: LPCDLGTEMPLATE, hWndParent: HWND, lpDialogFunc: DLGPROC) => VOID;
-	CreateDialogIndirectParamA: (hInstance: HINSTANCE, lpTemplate: LPCDLGTEMPLATEA, hWndParent: HWND, lpDialogFunc: DLGPROC, dwInitParam: LPARAM) => HWND;
-	CreateDialogIndirectParamW: (hInstance: HINSTANCE, lpTemplate: LPCDLGTEMPLATEW, hWndParent: HWND, lpDialogFunc: DLGPROC, dwInitParam: LPARAM) => HWND;
-	CreateDialogIndirectW: (hInstance: HINSTANCE, lpTemplate: LPCDLGTEMPLATEW, hWndParent: HWND, lpDialogFunc: DLGPROC) => VOID;
-	CreateDialogParamA: (hInstance: HINSTANCE, lpTemplateName: LPCSTR, hWndParent: HWND, lpDialogFunc: DLGPROC, dwInitParam: LPARAM) => HWND;
-	CreateDialogParamW: (hInstance: HINSTANCE, lpTemplateName: LPCWSTR, hWndParent: HWND, lpDialogFunc: DLGPROC, dwInitParam: LPARAM) => HWND;
+	CreateDialogIndirectA: (
+		hInstance: HINSTANCE,
+		lpTemplate: LPCDLGTEMPLATE,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC
+	) => VOID;
+	CreateDialogIndirectParamA: (
+		hInstance: HINSTANCE,
+		lpTemplate: LPCDLGTEMPLATEA,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC,
+		dwInitParam: LPARAM
+	) => HWND;
+	CreateDialogIndirectParamW: (
+		hInstance: HINSTANCE,
+		lpTemplate: LPCDLGTEMPLATEW,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC,
+		dwInitParam: LPARAM
+	) => HWND;
+	CreateDialogIndirectW: (
+		hInstance: HINSTANCE,
+		lpTemplate: LPCDLGTEMPLATEW,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC
+	) => VOID;
+	CreateDialogParamA: (
+		hInstance: HINSTANCE,
+		lpTemplateName: LPCSTR,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC,
+		dwInitParam: LPARAM
+	) => HWND;
+	CreateDialogParamW: (
+		hInstance: HINSTANCE,
+		lpTemplateName: LPCWSTR,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC,
+		dwInitParam: LPARAM
+	) => HWND;
 	CreateDialogW: (hInstance: HINSTANCE, lpName: LPCTSTR, hWndParent: HWND, lpDialogFunc: DLGPROC) => VOID;
-	CreateIcon: (hInstance: HINSTANCE, nWidth: INT, nHeight: INT, cPlanes: BYTE, cBitsPixel: BYTE, lpbANDbits: BYTE, lpbXORbits: BYTE) => HICON;
+	CreateIcon: (
+		hInstance: HINSTANCE,
+		nWidth: INT,
+		nHeight: INT,
+		cPlanes: BYTE,
+		cBitsPixel: BYTE,
+		lpbANDbits: BYTE,
+		lpbXORbits: BYTE
+	) => HICON;
 	CreateIconFromResource: (presbits: PBYTE, dwResSize: DWORD, fIcon: BOOL, dwVer: DWORD) => HICON;
-	CreateIconFromResourceEx: (presbits: PBYTE, dwResSize: DWORD, fIcon: BOOL, dwVer: DWORD, cxDesired: INT, cyDesired: INT, Flags: UINT) => HICON;
+	CreateIconFromResourceEx: (
+		presbits: PBYTE,
+		dwResSize: DWORD,
+		fIcon: BOOL,
+		dwVer: DWORD,
+		cxDesired: INT,
+		cyDesired: INT,
+		Flags: UINT
+	) => HICON;
 	CreateIconIndirect: (piconinfo: PICONINFO) => HICON;
-	CreateMDIWindowA: (lpClassName: LPCSTR, lpWindowName: LPCSTR, dwStyle: DWORD, X: INT, Y: INT, nWidth: INT, nHeight: INT, hWndParent: HWND, hInstance: HINSTANCE, lParam: LPARAM) => HWND;
-	CreateMDIWindowW: (lpClassName: LPCWSTR, lpWindowName: LPCWSTR, dwStyle: DWORD, X: INT, Y: INT, nWidth: INT, nHeight: INT, hWndParent: HWND, hInstance: HINSTANCE, lParam: LPARAM) => HWND;
+	CreateMDIWindowA: (
+		lpClassName: LPCSTR,
+		lpWindowName: LPCSTR,
+		dwStyle: DWORD,
+		X: INT,
+		Y: INT,
+		nWidth: INT,
+		nHeight: INT,
+		hWndParent: HWND,
+		hInstance: HINSTANCE,
+		lParam: LPARAM
+	) => HWND;
+	CreateMDIWindowW: (
+		lpClassName: LPCWSTR,
+		lpWindowName: LPCWSTR,
+		dwStyle: DWORD,
+		X: INT,
+		Y: INT,
+		nWidth: INT,
+		nHeight: INT,
+		hWndParent: HWND,
+		hInstance: HINSTANCE,
+		lParam: LPARAM
+	) => HWND;
 	CreateMenu: () => HMENU;
 	CreatePopupMenu: () => HMENU;
-	CreateSyntheticPointerDevice: (pointerType: POINTER_INPUT_TYPE, maxCount: ULONG, mode: POINTER_FEEDBACK_MODE) => HSYNTHETICPOINTERDEVICE;
-	CreateWindowA: (lpClassName: LPCTSTR, lpWindowName: LPCTSTR, dwStyle: DWORD, x: INT, y: INT, nWidth: INT, nHeight: INT, hWndParent: HWND, hMenu: HMENU, hInstance: HINSTANCE, lpParam: LPVOID) => VOID;
-	CreateWindowExA: (dwExStyle: DWORD, lpClassName: LPCSTR, lpWindowName: LPCSTR, dwStyle: DWORD, X: INT, Y: INT, nWidth: INT, nHeight: INT, hWndParent: HWND, hMenu: HMENU, hInstance: HINSTANCE, lpParam: LPVOID) => HWND;
-	CreateWindowExW: (dwExStyle: DWORD, lpClassName: LPCWSTR, lpWindowName: LPCWSTR, dwStyle: DWORD, X: INT, Y: INT, nWidth: INT, nHeight: INT, hWndParent: HWND, hMenu: HMENU, hInstance: HINSTANCE, lpParam: LPVOID) => HWND;
-	CreateWindowStationA: (lpwinsta: LPCSTR, dwFlags: DWORD, dwDesiredAccess: ACCESS_MASK, lpsa: LPSECURITY_ATTRIBUTES) => HWINSTA;
-	CreateWindowStationW: (lpwinsta: LPCWSTR, dwFlags: DWORD, dwDesiredAccess: ACCESS_MASK, lpsa: LPSECURITY_ATTRIBUTES) => HWINSTA;
-	CreateWindowW: (lpClassName: LPCTSTR, lpWindowName: LPCTSTR, dwStyle: DWORD, x: INT, y: INT, nWidth: INT, nHeight: INT, hWndParent: HWND, hMenu: HMENU, hInstance: HINSTANCE, lpParam: LPVOID) => VOID;
+	CreateSyntheticPointerDevice: (
+		pointerType: POINTER_INPUT_TYPE,
+		maxCount: ULONG,
+		mode: POINTER_FEEDBACK_MODE
+	) => HSYNTHETICPOINTERDEVICE;
+	CreateWindowA: (
+		lpClassName: LPCTSTR,
+		lpWindowName: LPCTSTR,
+		dwStyle: DWORD,
+		x: INT,
+		y: INT,
+		nWidth: INT,
+		nHeight: INT,
+		hWndParent: HWND,
+		hMenu: HMENU,
+		hInstance: HINSTANCE,
+		lpParam: LPVOID
+	) => VOID;
+	CreateWindowExA: (
+		dwExStyle: DWORD,
+		lpClassName: LPCSTR,
+		lpWindowName: LPCSTR,
+		dwStyle: DWORD,
+		X: INT,
+		Y: INT,
+		nWidth: INT,
+		nHeight: INT,
+		hWndParent: HWND,
+		hMenu: HMENU,
+		hInstance: HINSTANCE,
+		lpParam: LPVOID
+	) => HWND;
+	CreateWindowExW: (
+		dwExStyle: DWORD,
+		lpClassName: LPCWSTR,
+		lpWindowName: LPCWSTR,
+		dwStyle: DWORD,
+		X: INT,
+		Y: INT,
+		nWidth: INT,
+		nHeight: INT,
+		hWndParent: HWND,
+		hMenu: HMENU,
+		hInstance: HINSTANCE,
+		lpParam: LPVOID
+	) => HWND;
+	CreateWindowStationA: (
+		lpwinsta: LPCSTR,
+		dwFlags: DWORD,
+		dwDesiredAccess: ACCESS_MASK,
+		lpsa: LPSECURITY_ATTRIBUTES
+	) => HWINSTA;
+	CreateWindowStationW: (
+		lpwinsta: LPCWSTR,
+		dwFlags: DWORD,
+		dwDesiredAccess: ACCESS_MASK,
+		lpsa: LPSECURITY_ATTRIBUTES
+	) => HWINSTA;
+	CreateWindowW: (
+		lpClassName: LPCTSTR,
+		lpWindowName: LPCTSTR,
+		dwStyle: DWORD,
+		x: INT,
+		y: INT,
+		nWidth: INT,
+		nHeight: INT,
+		hWndParent: HWND,
+		hMenu: HMENU,
+		hInstance: HINSTANCE,
+		lpParam: LPVOID
+	) => VOID;
 	DefDlgProcW: (hDlg: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => LRESULT | LRESULT;
-	DeferWindowPos: (hWinPosInfo: HDWP, hWnd: HWND, hWndInsertAfter: HWND, x: INT, y: INT, cx: INT, cy: INT, uFlags: UINT) => HDWP;
+	DeferWindowPos: (
+		hWinPosInfo: HDWP,
+		hWnd: HWND,
+		hWndInsertAfter: HWND,
+		x: INT,
+		y: INT,
+		cx: INT,
+		cy: INT,
+		uFlags: UINT
+	) => HDWP;
 	DefFrameProcA: (hWnd: HWND, hWndMDIClient: HWND, uMsg: UINT, wParam: WPARAM, lParam: LPARAM) => LRESULT;
 	DefFrameProcW: (hWnd: HWND, hWndMDIClient: HWND, uMsg: UINT, wParam: WPARAM, lParam: LPARAM) => LRESULT;
 	DefMDIChildProcA: (hWnd: HWND, uMsg: UINT, wParam: WPARAM, lParam: LPARAM) => LRESULT | LRESULT;
@@ -143,12 +533,46 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	DestroySyntheticPointerDevice: (device: HSYNTHETICPOINTERDEVICE) => VOID;
 	DestroyWindow: (hWnd: HWND) => BOOL;
 	DialogBoxA: (hInstance: HINSTANCE, lpTemplate: LPCDLGTEMPLATE, hWndParent: HWND, lpDialogFunc: DLGPROC) => VOID;
-	DialogBoxIndirectA: (hInstance: HINSTANCE, lpTemplate: LPCDLGTEMPLATE, hWndParent: HWND, lpDialogFunc: DLGPROC) => VOID;
-	DialogBoxIndirectParamA: (hInstance: HINSTANCE, hDialogTemplate: LPCDLGTEMPLATEA, hWndParent: HWND, lpDialogFunc: DLGPROC, dwInitParam: LPARAM) => INT_PTR;
-	DialogBoxIndirectParamW: (hInstance: HINSTANCE, hDialogTemplate: LPCDLGTEMPLATEW, hWndParent: HWND, lpDialogFunc: DLGPROC, dwInitParam: LPARAM) => INT_PTR;
-	DialogBoxIndirectW: (hInstance: HINSTANCE, lpTemplate: LPCDLGTEMPLATE, hWndParent: HWND, lpDialogFunc: DLGPROC) => VOID;
-	DialogBoxParamA: (hInstance: HINSTANCE, lpTemplateName: LPCSTR, hWndParent: HWND, lpDialogFunc: DLGPROC, dwInitParam: LPARAM) => INT_PTR;
-	DialogBoxParamW: (hInstance: HINSTANCE, lpTemplateName: LPCWSTR, hWndParent: HWND, lpDialogFunc: DLGPROC, dwInitParam: LPARAM) => INT_PTR;
+	DialogBoxIndirectA: (
+		hInstance: HINSTANCE,
+		lpTemplate: LPCDLGTEMPLATE,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC
+	) => VOID;
+	DialogBoxIndirectParamA: (
+		hInstance: HINSTANCE,
+		hDialogTemplate: LPCDLGTEMPLATEA,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC,
+		dwInitParam: LPARAM
+	) => INT_PTR;
+	DialogBoxIndirectParamW: (
+		hInstance: HINSTANCE,
+		hDialogTemplate: LPCDLGTEMPLATEW,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC,
+		dwInitParam: LPARAM
+	) => INT_PTR;
+	DialogBoxIndirectW: (
+		hInstance: HINSTANCE,
+		lpTemplate: LPCDLGTEMPLATE,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC
+	) => VOID;
+	DialogBoxParamA: (
+		hInstance: HINSTANCE,
+		lpTemplateName: LPCSTR,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC,
+		dwInitParam: LPARAM
+	) => INT_PTR;
+	DialogBoxParamW: (
+		hInstance: HINSTANCE,
+		lpTemplateName: LPCWSTR,
+		hWndParent: HWND,
+		lpDialogFunc: DLGPROC,
+		dwInitParam: LPARAM
+	) => INT_PTR;
 	DialogBoxW: (hInstance: HINSTANCE, lpTemplate: LPCDLGTEMPLATE, hWndParent: HWND, lpDialogFunc: DLGPROC) => VOID;
 	DisableProcessWindowsGhosting: () => VOID;
 	DispatchMessage: (lpMsg: MSG) => LRESULT;
@@ -171,10 +595,42 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	DrawFocusRect: (hDC: HDC, lprc: RECT) => BOOL;
 	// DrawFrameControl: (: HDC,: LPRECT,: UINT,: UINT)=> BOOL;
 	DrawIcon: (hDC: HDC, X: INT, Y: INT, hIcon: HICON) => BOOL;
-	DrawIconEx: (hdc: HDC, xLeft: INT, yTop: INT, hIcon: HICON, cxWidth: INT, cyWidth: INT, istepIfAniCur: UINT, hbrFlickerFreeDraw: HBRUSH, diFlags: UINT) => BOOL;
+	DrawIconEx: (
+		hdc: HDC,
+		xLeft: INT,
+		yTop: INT,
+		hIcon: HICON,
+		cxWidth: INT,
+		cyWidth: INT,
+		istepIfAniCur: UINT,
+		hbrFlickerFreeDraw: HBRUSH,
+		diFlags: UINT
+	) => BOOL;
 	DrawMenuBar: (hWnd: HWND) => BOOL;
-	DrawStateA: (hdc: HDC, hbrFore: HBRUSH, qfnCallBack: DRAWSTATEPROC, lData: LPARAM, wData: WPARAM, x: INT, y: INT, cx: INT, cy: INT, uFlags: UINT) => BOOL;
-	DrawStateW: (hdc: HDC, hbrFore: HBRUSH, qfnCallBack: DRAWSTATEPROC, lData: LPARAM, wData: WPARAM, x: INT, y: INT, cx: INT, cy: INT, uFlags: UINT) => BOOL;
+	DrawStateA: (
+		hdc: HDC,
+		hbrFore: HBRUSH,
+		qfnCallBack: DRAWSTATEPROC,
+		lData: LPARAM,
+		wData: WPARAM,
+		x: INT,
+		y: INT,
+		cx: INT,
+		cy: INT,
+		uFlags: UINT
+	) => BOOL;
+	DrawStateW: (
+		hdc: HDC,
+		hbrFore: HBRUSH,
+		qfnCallBack: DRAWSTATEPROC,
+		lData: LPARAM,
+		wData: WPARAM,
+		x: INT,
+		y: INT,
+		cx: INT,
+		cy: INT,
+		uFlags: UINT
+	) => BOOL;
 	DrawText: (hdc: HDC, lpchText: LPCTSTR, cchText: INT, lprc: LPRECT, format: UINT) => INT;
 	DrawTextA: (hdc: HDC, lpchText: LPCSTR, cchText: INT, lprc: LPRECT, format: UINT) => INT;
 	DrawTextExA: (hdc: HDC, lpchText: LPSTR, cchText: INT, lprc: LPRECT, format: UINT, lpdtp: LPDRAWTEXTPARAMS) => INT;
@@ -212,15 +668,29 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	EnumWindowStationsA: (lpEnumFunc: WINSTAENUMPROCA, lParam: LPARAM) => BOOL;
 	EnumWindowStationsW: (lpEnumFunc: WINSTAENUMPROCW, lParam: LPARAM) => BOOL;
 	EqualRect: (lprc1: RECT, lprc2: RECT) => BOOL;
-	EvaluateProximityToPolygon: (numVertices: UINT32, controlPolygon: POINT, pHitTestingInput: TOUCH_HIT_TESTING_INPUT, pProximityEval: TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) => BOOL;
-	EvaluateProximityToRect: (controlBoundingBox: RECT, pHitTestingInput: TOUCH_HIT_TESTING_INPUT, pProximityEval: TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) => BOOL;
+	EvaluateProximityToPolygon: (
+		numVertices: UINT32,
+		controlPolygon: POINT,
+		pHitTestingInput: TOUCH_HIT_TESTING_INPUT,
+		pProximityEval: TOUCH_HIT_TESTING_PROXIMITY_EVALUATION
+	) => BOOL;
+	EvaluateProximityToRect: (
+		controlBoundingBox: RECT,
+		pHitTestingInput: TOUCH_HIT_TESTING_INPUT,
+		pProximityEval: TOUCH_HIT_TESTING_PROXIMITY_EVALUATION
+	) => BOOL;
 	ExcludeUpdateRgn: (hDC: HDC, hWnd: HWND) => INT;
 	ExitWindows: (dwReserved: any, Code: any) => VOID;
 	ExitWindowsEx: (uFlags: UINT, dwReason: DWORD) => BOOL;
 	FillRect: (hDC: HDC, lprc: RECT, hbr: HBRUSH) => INT;
 	FindWindowA: (lpClassName: LPCSTR, lpWindowName: LPCSTR) => HWND;
 	FindWindowExA: (hWndParent: HWND, hWndChildAfter: HWND, lpszClass: LPCSTR | null, lpszWindow: LPCSTR | null) => HWND;
-	FindWindowExW: (hWndParent: HWND, hWndChildAfter: HWND, lpszClass: LPCWSTR | null, lpszWindow: LPCWSTR | null) => HWND;
+	FindWindowExW: (
+		hWndParent: HWND,
+		hWndChildAfter: HWND,
+		lpszClass: LPCWSTR | null,
+		lpszWindow: LPCWSTR | null
+	) => HWND;
 	FindWindowW: (lpClassName: LPCWSTR, lpWindowName: LPCWSTR) => HWND;
 	FlashWindow: (hWnd: HWND, bInvert: BOOL) => BOOL;
 	FlashWindowEx: (pfwi: PFLASHWINFO) => BOOL;
@@ -278,7 +748,11 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	GetDialogControlDpiChangeBehavior: (hWnd: HWND) => DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS;
 	GetDialogDpiChangeBehavior: (hDlg: HWND) => DIALOG_DPI_CHANGE_BEHAVIORS;
 	GetDisplayAutoRotationPreferences: (pOrientation: ORIENTATION_PREFERENCE) => BOOL;
-	GetDisplayAutoRotationPreferencesByProcessId: (dwProcessId: DWORD, pOrientation: ORIENTATION_PREFERENCE, fRotateScreen: BOOL) => BOOL;
+	GetDisplayAutoRotationPreferencesByProcessId: (
+		dwProcessId: DWORD,
+		pOrientation: ORIENTATION_PREFERENCE,
+		fRotateScreen: BOOL
+	) => BOOL;
 	GetDisplayConfigBufferSizes: (flags: UINT32, numPathArrayElements: UINT32, numModeInfoArrayElements: UINT32) => LONG;
 	GetDlgCtrlID: (hWnd: HWND) => INT;
 	GetDlgItem: (hDlg: HWND, nIDDlgItem: INT) => HWND;
@@ -291,7 +765,14 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	GetDpiFromDpiAwarenessContext: (value: DPI_AWARENESS_CONTEXT) => UINT;
 	GetFocus: () => HWND;
 	GetForegroundWindow: () => HWND;
-	GetGestureConfig: (hwnd: HWND, dwReserved: DWORD, dwFlags: DWORD, pcIDs: PUINT, pGestureConfig: PGESTURECONFIG, cbSize: UINT) => BOOL;
+	GetGestureConfig: (
+		hwnd: HWND,
+		dwReserved: DWORD,
+		dwFlags: DWORD,
+		pcIDs: PUINT,
+		pGestureConfig: PGESTURECONFIG,
+		cbSize: UINT
+	) => BOOL;
 	GetGestureExtraArgs: (hGestureInfo: HGESTUREINFO, cbExtraArgs: UINT, pExtraArgs: PBYTE) => BOOL;
 	GetGestureInfo: (hGestureInfo: HGESTUREINFO, pGestureInfo: PGESTUREINFO) => BOOL;
 	GetGuiResources: (hProcess: HANDLE, uiFlags: DWORD) => DWORD;
@@ -328,15 +809,36 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	GetMenuState: (hMenu: HMENU, uId: UINT, uFlags: UINT) => UINT;
 	GetMenuStringA: (hMenu: HMENU, uIDItem: UINT, lpString: LPSTR, cchMax: INT, flags: UINT) => INT;
 	GetMenuStringW: (hMenu: HMENU, uIDItem: UINT, lpString: LPWSTR, cchMax: INT, flags: UINT) => INT;
-	GetMessage: (lpMsg: LPMSG, hWnd: HWND | number | null, wMsgFilterMin: UINT | null | number, wMsgFilterMax: UINT | null | number) => BOOL;
-	GetMessageA: (lpMsg: LPMSG, hWnd: HWND | number | null, wMsgFilterMin: UINT | null | number, wMsgFilterMax: UINT | null | number) => BOOL;
+	GetMessage: (
+		lpMsg: LPMSG,
+		hWnd: HWND | number | null,
+		wMsgFilterMin: UINT | null | number,
+		wMsgFilterMax: UINT | null | number
+	) => BOOL;
+	GetMessageA: (
+		lpMsg: LPMSG,
+		hWnd: HWND | number | null,
+		wMsgFilterMin: UINT | null | number,
+		wMsgFilterMax: UINT | null | number
+	) => BOOL;
 	GetMessageExtraInfo: () => LPARAM;
 	GetMessagePos: () => DWORD;
 	GetMessageTime: () => LONG;
-	GetMessageW: (lpMsg: LPMSG, hWnd: HWND | number | null, wMsgFilterMin: UINT | null | number, wMsgFilterMax: UINT | null | number) => BOOL;
+	GetMessageW: (
+		lpMsg: LPMSG,
+		hWnd: HWND | number | null,
+		wMsgFilterMin: UINT | null | number,
+		wMsgFilterMax: UINT | null | number
+	) => BOOL;
 	GetMonitorInfoA: (hMonitor: HMONITOR, lpmi: LPMONITORINFO) => BOOL;
 	GetMonitorInfoW: (hMonitor: HMONITOR, lpmi: LPMONITORINFO) => BOOL;
-	GetMouseMovePointsEx: (cbSize: UINT, lppt: LPMOUSEMOVEPOINT, lpptBuf: LPMOUSEMOVEPOINT, nBufPoints: INT, resolution: DWORD) => INT;
+	GetMouseMovePointsEx: (
+		cbSize: UINT,
+		lppt: LPMOUSEMOVEPOINT,
+		lpptBuf: LPMOUSEMOVEPOINT,
+		nBufPoints: INT,
+		resolution: DWORD
+	) => INT;
 	GetNextDlgGroupItem: (hDlg: HWND, hCtl: HWND, bPrevious: BOOL) => HWND;
 	GetNextDlgTabItem: (hDlg: HWND, hCtl: HWND, bPrevious: BOOL) => HWND;
 	GetNextWindow: (hWnd: HWND, wCmd: UINT) => VOID;
@@ -346,15 +848,34 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	GetPointerCursorId: (pointerId: UINT32, cursorId: UINT32) => BOOL;
 	GetPointerDevice: (device: HANDLE, pointerDevice: POINTER_DEVICE_INFO) => BOOL;
 	GetPointerDeviceCursors: (device: HANDLE, cursorCount: UINT32, deviceCursors: POINTER_DEVICE_CURSOR_INFO) => BOOL;
-	GetPointerDeviceProperties: (device: HANDLE, propertyCount: UINT32, pointerProperties: POINTER_DEVICE_PROPERTY) => BOOL;
+	GetPointerDeviceProperties: (
+		device: HANDLE,
+		propertyCount: UINT32,
+		pointerProperties: POINTER_DEVICE_PROPERTY
+	) => BOOL;
 	GetPointerDeviceRects: (device: HANDLE, pointerDeviceRect: RECT, displayRect: RECT) => BOOL;
 	GetPointerDevices: (deviceCount: UINT32, pointerDevices: POINTER_DEVICE_INFO) => BOOL;
 	GetPointerFrameInfo: (pointerId: UINT32, pointerCount: UINT32, pointerInfo: POINTER_INFO) => BOOL;
-	GetPointerFrameInfoHistory: (pointerId: UINT32, entriesCount: UINT32, pointerCount: UINT32, pointerInfo: POINTER_INFO) => BOOL;
+	GetPointerFrameInfoHistory: (
+		pointerId: UINT32,
+		entriesCount: UINT32,
+		pointerCount: UINT32,
+		pointerInfo: POINTER_INFO
+	) => BOOL;
 	GetPointerFramePenInfo: (pointerId: UINT32, pointerCount: UINT32, penInfo: POINTER_PEN_INFO) => BOOL;
-	GetPointerFramePenInfoHistory: (pointerId: UINT32, entriesCount: UINT32, pointerCount: UINT32, penInfo: POINTER_PEN_INFO) => BOOL;
+	GetPointerFramePenInfoHistory: (
+		pointerId: UINT32,
+		entriesCount: UINT32,
+		pointerCount: UINT32,
+		penInfo: POINTER_PEN_INFO
+	) => BOOL;
 	GetPointerFrameTouchInfo: (pointerId: UINT32, pointerCount: UINT32, touchInfo: POINTER_TOUCH_INFO) => BOOL;
-	GetPointerFrameTouchInfoHistory: (pointerId: UINT32, entriesCount: UINT32, pointerCount: UINT32, touchInfo: POINTER_TOUCH_INFO) => BOOL;
+	GetPointerFrameTouchInfoHistory: (
+		pointerId: UINT32,
+		entriesCount: UINT32,
+		pointerCount: UINT32,
+		touchInfo: POINTER_TOUCH_INFO
+	) => BOOL;
 	GetPointerInfo: (pointerId: UINT32, pointerInfo: POINTER_INFO) => BOOL;
 	GetPointerInfoHistory: (pointerId: UINT32, entriesCount: UINT32, pointerInfo: POINTER_INFO) => BOOL;
 	GetPointerInputTransform: (pointerId: UINT32, historyCount: UINT32, inputTransform: INPUT_TRANSFORM) => BOOL;
@@ -374,7 +895,13 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	GetRawInputDeviceInfoA: (hDevice: HANDLE, uiCommand: UINT, pData: LPVOID, pcbSize: PUINT) => UINT;
 	GetRawInputDeviceInfoW: (hDevice: HANDLE, uiCommand: UINT, pData: LPVOID, pcbSize: PUINT) => UINT;
 	GetRawInputDeviceList: (pRawInputDeviceList: PRAWINPUTDEVICELIST, puiNumDevices: PUINT, cbSize: UINT) => UINT;
-	GetRawPointerDeviceData: (pointerId: UINT32, historyCount: UINT32, propertiesCount: UINT32, pProperties: POINTER_DEVICE_PROPERTY, pValues: LONG) => BOOL;
+	GetRawPointerDeviceData: (
+		pointerId: UINT32,
+		historyCount: UINT32,
+		propertiesCount: UINT32,
+		pProperties: POINTER_DEVICE_PROPERTY,
+		pValues: LONG
+	) => BOOL;
 	GetRegisteredRawInputDevices: (pRawInputDevices: PRAWINPUTDEVICE, puiNumDevices: PUINT, cbSize: UINT) => UINT;
 	GetScrollBarInfo: (hwnd: HWND, idObject: LONG, psbi: PSCROLLBARINFO) => BOOL;
 	GetScrollInfo: (hwnd: HWND, nBar: INT, lpsi: LPSCROLLINFO) => BOOL;
@@ -388,8 +915,20 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	GetSystemMenu: (hWnd: HWND, bRevert: BOOL) => HMENU;
 	GetSystemMetrics: (nIndex: INT) => INT;
 	GetSystemMetricsForDpi: (nIndex: INT, dpi: UINT) => INT;
-	GetTabbedTextExtentA: (hdc: HDC, lpString: LPCSTR, chCount: INT, nTabPositions: INT, lpnTabStopPositions: INT) => DWORD;
-	GetTabbedTextExtentW: (hdc: HDC, lpString: LPCWSTR, chCount: INT, nTabPositions: INT, lpnTabStopPositions: INT) => DWORD;
+	GetTabbedTextExtentA: (
+		hdc: HDC,
+		lpString: LPCSTR,
+		chCount: INT,
+		nTabPositions: INT,
+		lpnTabStopPositions: INT
+	) => DWORD;
+	GetTabbedTextExtentW: (
+		hdc: HDC,
+		lpString: LPCWSTR,
+		chCount: INT,
+		nTabPositions: INT,
+		lpnTabStopPositions: INT
+	) => DWORD;
 	GetThreadDesktop: (dwThreadId: DWORD) => HDESK;
 	GetThreadDpiAwarenessContext: () => DPI_AWARENESS_CONTEXT;
 	GetThreadDpiHostingBehavior: () => DPI_HOSTING_BEHAVIOR;
@@ -400,9 +939,27 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	GetUpdatedClipboardFormats: (lpuiFormats: PUINT, cFormats: UINT, pcFormatsOut: PUINT) => BOOL;
 	GetUpdateRect: (hWnd: HWND, lpRect: LPRECT, bErase: BOOL) => BOOL;
 	GetUpdateRgn: (hWnd: HWND, hRgn: HRGN, bErase: BOOL) => INT;
-	GetUserObjectInformationA: (hObj: HANDLE, nIndex: INT, pvInfo: PVOID, nLength: DWORD, lpnLengthNeeded: LPDWORD) => BOOL;
-	GetUserObjectInformationW: (hObj: HANDLE, nIndex: INT, pvInfo: PVOID, nLength: DWORD, lpnLengthNeeded: LPDWORD) => BOOL;
-	GetUserObjectSecurity: (hObj: HANDLE, pSIRequested: PSECURITY_INFORMATION, pSID: PSECURITY_DESCRIPTOR, nLength: DWORD, lpnLengthNeeded: LPDWORD) => BOOL;
+	GetUserObjectInformationA: (
+		hObj: HANDLE,
+		nIndex: INT,
+		pvInfo: PVOID,
+		nLength: DWORD,
+		lpnLengthNeeded: LPDWORD
+	) => BOOL;
+	GetUserObjectInformationW: (
+		hObj: HANDLE,
+		nIndex: INT,
+		pvInfo: PVOID,
+		nLength: DWORD,
+		lpnLengthNeeded: LPDWORD
+	) => BOOL;
+	GetUserObjectSecurity: (
+		hObj: HANDLE,
+		pSIRequested: PSECURITY_INFORMATION,
+		pSID: PSECURITY_DESCRIPTOR,
+		nLength: DWORD,
+		lpnLengthNeeded: LPDWORD
+	) => BOOL;
 	GetWindow: (hWnd: HWND, uCmd: UINT) => HWND;
 	GetWindowContextHelpId: (Arg1: HWND) => DWORD;
 	GetWindowDC: (hWnd: HWND) => HDC;
@@ -428,8 +985,28 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	GetWindowThreadProcessId: (hWnd: HWND, lpdwProcessId: LPDWORD) => DWORD;
 	GID_ROTATE_ANGLE_FROM_ARGUMENT: (_arg_: any) => VOID;
 	GID_ROTATE_ANGLE_TO_ARGUMENT: (_arg_: any) => VOID;
-	GrayStringA: (hDC: HDC, hBrush: HBRUSH, lpOutputFunc: GRAYSTRINGPROC, lpData: LPARAM, nCount: INT, X: INT, Y: INT, nWidth: INT, nHeight: INT) => BOOL;
-	GrayStringW: (hDC: HDC, hBrush: HBRUSH, lpOutputFunc: GRAYSTRINGPROC, lpData: LPARAM, nCount: INT, X: INT, Y: INT, nWidth: INT, nHeight: INT) => BOOL;
+	GrayStringA: (
+		hDC: HDC,
+		hBrush: HBRUSH,
+		lpOutputFunc: GRAYSTRINGPROC,
+		lpData: LPARAM,
+		nCount: INT,
+		X: INT,
+		Y: INT,
+		nWidth: INT,
+		nHeight: INT
+	) => BOOL;
+	GrayStringW: (
+		hDC: HDC,
+		hBrush: HBRUSH,
+		lpOutputFunc: GRAYSTRINGPROC,
+		lpData: LPARAM,
+		nCount: INT,
+		X: INT,
+		Y: INT,
+		nWidth: INT,
+		nHeight: INT
+	) => BOOL;
 	HAS_POINTER_CONFIDENCE_WPARAM: (wParam: WPARAM) => VOID;
 	HideCaret: (hWnd: HWND) => BOOL;
 	HiliteMenuItem: (hWnd: HWND, hMenu: HMENU, uIDHiliteItem: UINT, uHilite: UINT) => BOOL;
@@ -545,8 +1122,20 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	MonitorFromWindow: (hwnd: HWND, dwFlags: DWORD) => HMONITOR;
 	mouse_event: (dwFlags: DWORD, dx: DWORD, dy: DWORD, dwData: DWORD, dwExtraInfo: ULONG_PTR) => VOID;
 	MoveWindow: (hWnd: HWND, X: INT, Y: INT, nWidth: INT, nHeight: INT, bRepaint: BOOL) => BOOL;
-	MsgWaitForMultipleObjects: (nCount: DWORD, pHandles: HANDLE, fWaitAll: BOOL, dwMilliseconds: DWORD, dwWakeMask: DWORD) => DWORD;
-	MsgWaitForMultipleObjectsEx: (nCount: DWORD, pHandles: HANDLE, dwMilliseconds: DWORD, dwWakeMask: DWORD, dwFlags: DWORD) => DWORD;
+	MsgWaitForMultipleObjects: (
+		nCount: DWORD,
+		pHandles: HANDLE,
+		fWaitAll: BOOL,
+		dwMilliseconds: DWORD,
+		dwWakeMask: DWORD
+	) => DWORD;
+	MsgWaitForMultipleObjectsEx: (
+		nCount: DWORD,
+		pHandles: HANDLE,
+		dwMilliseconds: DWORD,
+		dwWakeMask: DWORD,
+		dwFlags: DWORD
+	) => DWORD;
 	NEXTRAWINPUTBLOCK: (ptr: Pointer) => VOID;
 	NotifyWinEvent: (event: DWORD, hwnd: HWND, idObject: LONG, idChild: LONG) => VOID;
 	OemKeyScan: (wOemChar: WORD) => DWORD;
@@ -562,7 +1151,10 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	OpenInputDesktop: (dwFlags: DWORD, fInherit: BOOL, dwDesiredAccess: ACCESS_MASK) => HDESK;
 	OpenWindowStationA: (lpszWinSta: LPCSTR, fInherit: BOOL, dwDesiredAccess: ACCESS_MASK) => HWINSTA;
 	OpenWindowStationW: (lpszWinSta: LPCWSTR, fInherit: BOOL, dwDesiredAccess: ACCESS_MASK) => HWINSTA;
-	PackTouchHitTestingProximityEvaluation: (pHitTestingInput: TOUCH_HIT_TESTING_INPUT, pProximityEval: TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) => LRESULT;
+	PackTouchHitTestingProximityEvaluation: (
+		pHitTestingInput: TOUCH_HIT_TESTING_INPUT,
+		pProximityEval: TOUCH_HIT_TESTING_PROXIMITY_EVALUATION
+	) => LRESULT;
 	PaintDesktop: (hdc: HDC) => BOOL;
 	PeekMessageA: (lpMsg: LPMSG, hWnd: HWND, wMsgFilterMin: UINT, wMsgFilterMax: UINT, wRemoveMsg: UINT) => BOOL;
 	PeekMessageW: (lpMsg: LPMSG, hWnd: HWND, wMsgFilterMin: UINT, wMsgFilterMax: UINT, wRemoveMsg: UINT) => BOOL;
@@ -576,10 +1168,35 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	PostThreadMessageA: (idThread: DWORD, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => BOOL;
 	PostThreadMessageW: (idThread: DWORD, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => BOOL;
 	PrintWindow: (hwnd: HWND, hdcBlt: HDC, nFlags: UINT) => BOOL;
-	PrivateExtractIconsA: (szFileName: LPCSTR, nIconIndex: INT, cxIcon: INT, cyIcon: INT, phicon: HICON, piconid: UINT, nIcons: UINT, flags: UINT) => UINT;
-	PrivateExtractIconsW: (szFileName: LPCWSTR, nIconIndex: INT, cxIcon: INT, cyIcon: INT, phicon: HICON, piconid: UINT, nIcons: UINT, flags: UINT) => UINT;
+	PrivateExtractIconsA: (
+		szFileName: LPCSTR,
+		nIconIndex: INT,
+		cxIcon: INT,
+		cyIcon: INT,
+		phicon: HICON,
+		piconid: UINT,
+		nIcons: UINT,
+		flags: UINT
+	) => UINT;
+	PrivateExtractIconsW: (
+		szFileName: LPCWSTR,
+		nIconIndex: INT,
+		cxIcon: INT,
+		cyIcon: INT,
+		phicon: HICON,
+		piconid: UINT,
+		nIcons: UINT,
+		flags: UINT
+	) => UINT;
 	PtInRect: (lprc: RECT, pt: POINT) => BOOL;
-	QueryDisplayConfig: (flags: UINT32, numPathArrayElements: UINT32, pathArray: DISPLAYCONFIG_PATH_INFO, numModeInfoArrayElements: UINT32, modeInfoArray: DISPLAYCONFIG_MODE_INFO, currentTopologyId: DISPLAYCONFIG_TOPOLOGY_ID) => LONG;
+	QueryDisplayConfig: (
+		flags: UINT32,
+		numPathArrayElements: UINT32,
+		pathArray: DISPLAYCONFIG_PATH_INFO,
+		numModeInfoArrayElements: UINT32,
+		modeInfoArray: DISPLAYCONFIG_MODE_INFO,
+		currentTopologyId: DISPLAYCONFIG_TOPOLOGY_ID
+	) => LONG;
 	RealChildWindowFromPoint: (hwndParent: HWND, ptParentClientCoords: POINT) => HWND;
 	RealGetWindowClassW: (hwnd: HWND, ptszClassName: LPWSTR, cchClassNameMax: UINT) => UINT;
 	RedrawWindow: (hWnd: HWND, lprcUpdate: RECT, hrgnUpdate: HRGN, flags: UINT) => BOOL;
@@ -611,18 +1228,65 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	RemovePropW: (hWnd: HWND, lpString: LPCWSTR) => HANDLE;
 	ReplyMessage: (lResult: LRESULT) => BOOL;
 	ScreenToClient: (hWnd: HWND, lpPoint: LPPOINT) => BOOL;
-	ScrollDC: (hDC: HDC, dx: INT, dy: INT, lprcScroll: RECT, lprcClip: RECT, hrgnUpdate: HRGN, lprcUpdate: LPRECT) => BOOL;
+	ScrollDC: (
+		hDC: HDC,
+		dx: INT,
+		dy: INT,
+		lprcScroll: RECT,
+		lprcClip: RECT,
+		hrgnUpdate: HRGN,
+		lprcUpdate: LPRECT
+	) => BOOL;
 	ScrollWindow: (hWnd: HWND, XAmount: INT, YAmount: INT, lpRect: RECT, lpClipRect: RECT) => BOOL;
-	ScrollWindowEx: (hWnd: HWND, dx: INT, dy: INT, prcScroll: RECT, prcClip: RECT, hrgnUpdate: HRGN, prcUpdate: LPRECT, flags: UINT) => INT;
+	ScrollWindowEx: (
+		hWnd: HWND,
+		dx: INT,
+		dy: INT,
+		prcScroll: RECT,
+		prcClip: RECT,
+		hrgnUpdate: HRGN,
+		prcUpdate: LPRECT,
+		flags: UINT
+	) => INT;
 	SendDlgItemMessageA: (hDlg: HWND, nIDDlgItem: INT, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => LRESULT;
 	SendDlgItemMessageW: (hDlg: HWND, nIDDlgItem: INT, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => LRESULT;
 	SendInput: (cInputs: UINT, pInputs: LPINPUT, cbSize: INT) => UINT;
 	SendMessage: (hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => LRESULT;
 	SendMessageA: (hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => LRESULT;
-	SendMessageCallbackA: (hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM, lpResultCallBack: SENDASYNCPROC, dwData: ULONG_PTR) => BOOL;
-	SendMessageCallbackW: (hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM, lpResultCallBack: SENDASYNCPROC, dwData: ULONG_PTR) => BOOL;
-	SendMessageTimeoutA: (hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM, fuFlags: UINT, uTimeout: UINT, lpdwResult: PDWORD_PTR) => LRESULT;
-	SendMessageTimeoutW: (hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM, fuFlags: UINT, uTimeout: UINT, lpdwResult: PDWORD_PTR) => LRESULT;
+	SendMessageCallbackA: (
+		hWnd: HWND,
+		Msg: UINT,
+		wParam: WPARAM,
+		lParam: LPARAM,
+		lpResultCallBack: SENDASYNCPROC,
+		dwData: ULONG_PTR
+	) => BOOL;
+	SendMessageCallbackW: (
+		hWnd: HWND,
+		Msg: UINT,
+		wParam: WPARAM,
+		lParam: LPARAM,
+		lpResultCallBack: SENDASYNCPROC,
+		dwData: ULONG_PTR
+	) => BOOL;
+	SendMessageTimeoutA: (
+		hWnd: HWND,
+		Msg: UINT,
+		wParam: WPARAM,
+		lParam: LPARAM,
+		fuFlags: UINT,
+		uTimeout: UINT,
+		lpdwResult: PDWORD_PTR
+	) => LRESULT;
+	SendMessageTimeoutW: (
+		hWnd: HWND,
+		Msg: UINT,
+		wParam: WPARAM,
+		lParam: LPARAM,
+		fuFlags: UINT,
+		uTimeout: UINT,
+		lpdwResult: PDWORD_PTR
+	) => LRESULT;
 	SendMessageW: (hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => LRESULT;
 	SendNotifyMessageA: (hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => BOOL;
 	SendNotifyMessageW: (hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => BOOL;
@@ -637,13 +1301,33 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	SetClassWord: (hWnd: HWND, nIndex: INT, wNewWord: WORD) => WORD;
 	SetClipboardData: (uFormat: UINT, hMem: HANDLE) => HANDLE;
 	SetClipboardViewer: (hWndNewViewer: HWND) => HWND;
-	SetCoalescableTimer: (hWnd: HWND, nIDEvent: UINT_PTR, uElapse: UINT, lpTimerFunc: TIMERPROC, uToleranceDelay: ULONG) => UINT_PTR;
+	SetCoalescableTimer: (
+		hWnd: HWND,
+		nIDEvent: UINT_PTR,
+		uElapse: UINT,
+		lpTimerFunc: TIMERPROC,
+		uToleranceDelay: ULONG
+	) => UINT_PTR;
 	SetCursor: (hCursor: HCURSOR) => HCURSOR;
 	SetCursorPos: (X: INT, Y: INT) => BOOL;
-	SetDialogControlDpiChangeBehavior: (hWnd: HWND, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) => BOOL;
-	SetDialogDpiChangeBehavior: (hDlg: HWND, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS) => BOOL;
+	SetDialogControlDpiChangeBehavior: (
+		hWnd: HWND,
+		mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS,
+		values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS
+	) => BOOL;
+	SetDialogDpiChangeBehavior: (
+		hDlg: HWND,
+		mask: DIALOG_DPI_CHANGE_BEHAVIORS,
+		values: DIALOG_DPI_CHANGE_BEHAVIORS
+	) => BOOL;
 	SetDisplayAutoRotationPreferences: (orientation: ORIENTATION_PREFERENCE) => BOOL;
-	SetDisplayConfig: (numPathArrayElements: UINT32, pathArray: DISPLAYCONFIG_PATH_INFO, numModeInfoArrayElements: UINT32, modeInfoArray: DISPLAYCONFIG_MODE_INFO, flags: UINT32) => LONG;
+	SetDisplayConfig: (
+		numPathArrayElements: UINT32,
+		pathArray: DISPLAYCONFIG_PATH_INFO,
+		numModeInfoArrayElements: UINT32,
+		modeInfoArray: DISPLAYCONFIG_MODE_INFO,
+		flags: UINT32
+	) => LONG;
 	SetDlgItemInt: (hDlg: HWND, nIDDlgItem: INT, uValue: UINT, bSigned: BOOL) => BOOL;
 	SetDlgItemTextA: (hDlg: HWND, nIDDlgItem: INT, lpString: LPCSTR) => BOOL;
 	SetDlgItemTextW: (hDlg: HWND, nIDDlgItem: INT, lpString: LPCWSTR) => BOOL;
@@ -658,7 +1342,13 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	SetMenuContextHelpId: (arg1: HMENU, arg2: DWORD) => BOOL;
 	SetMenuDefaultItem: (hMenu: HMENU, uItem: UINT, fByPos: UINT) => BOOL;
 	SetMenuInfo: (arg1: HMENU, arg2: LPCMENUINFO) => BOOL;
-	SetMenuItemBitmaps: (hMenu: HMENU, uPosition: UINT, uFlags: UINT, hBitmapUnchecked: HBITMAP, hBitmapChecked: HBITMAP) => BOOL;
+	SetMenuItemBitmaps: (
+		hMenu: HMENU,
+		uPosition: UINT,
+		uFlags: UINT,
+		hBitmapUnchecked: HBITMAP,
+		hBitmapChecked: HBITMAP
+	) => BOOL;
 	SetMenuItemInfoA: (hmenu: HMENU, item: UINT, fByPositon: BOOL, lpmii: LPCMENUITEMINFOA) => BOOL;
 	SetMenuItemInfoW: (hmenu: HMENU, item: UINT, fByPositon: BOOL, lpmii: LPCMENUITEMINFOW) => BOOL;
 	SetMessageExtraInfo: (lParam: LPARAM) => LPARAM;
@@ -687,7 +1377,13 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	SetUserObjectSecurity: (hObj: HANDLE, pSIRequested: PSECURITY_INFORMATION, pSID: PSECURITY_DESCRIPTOR) => BOOL;
 	SetWindowContextHelpId: (arg1: HWND, arg2: DWORD) => BOOL;
 	SetWindowDisplayAffinity: (hWnd: HWND, dwAffinity: DWORD) => BOOL;
-	SetWindowFeedbackSetting: (hwnd: HWND, feedback: FEEDBACK_TYPE, dwFlags: DWORD, size: UINT32, configuration: VOID) => BOOL;
+	SetWindowFeedbackSetting: (
+		hwnd: HWND,
+		feedback: FEEDBACK_TYPE,
+		dwFlags: DWORD,
+		size: UINT32,
+		configuration: VOID
+	) => BOOL;
 	SetWindowLongA: (hWnd: HWND, nIndex: INT, dwNewLong: LONG) => LONG;
 	SetWindowLongPtrA: (hWnd: HWND, nIndex: INT, dwNewLong: LONG_PTR) => LONG_PTR;
 	SetWindowLongPtrW: (hWnd: HWND, nIndex: INT, dwNewLong: LONG_PTR) => LONG_PTR;
@@ -699,7 +1395,15 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	SetWindowsHookExW: (idHook: INT, lpfn: HOOKPROC, hmod: HINSTANCE, dwThreadId: DWORD) => HHOOK;
 	SetWindowTextA: (hWnd: HWND, lpString: LPCSTR) => BOOL;
 	SetWindowTextW: (hWnd: HWND, lpString: LPCWSTR) => BOOL;
-	SetWinEventHook: (eventMin: DWORD, eventMax: DWORD, hmodWinEventProc: HMODULE, pfnWinEventProc: WINEVENTPROC, idProcess: DWORD, idThread: DWORD, dwFlags: DWORD) => HWINEVENTHOOK;
+	SetWinEventHook: (
+		eventMin: DWORD,
+		eventMax: DWORD,
+		hmodWinEventProc: HMODULE,
+		pfnWinEventProc: WINEVENTPROC,
+		idProcess: DWORD,
+		idThread: DWORD,
+		dwFlags: DWORD
+	) => HWINEVENTHOOK;
 	ShowCaret: (hWnd: HWND) => BOOL;
 	ShowCursor: (bShow: BOOL) => INT;
 	ShowOwnedPopups: (hWnd: HWND, fShow: BOOL) => BOOL;
@@ -718,14 +1422,40 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	SystemParametersInfoA: (uiAction: UINT, uiParam: UINT, pvParam: PVOID, fWinIni: UINT) => BOOL;
 	SystemParametersInfoForDpi: (uiAction: UINT, uiParam: UINT, pvParam: PVOID, fWinIni: UINT, dpi: UINT) => BOOL;
 	SystemParametersInfoW: (uiAction: UINT, uiParam: UINT, pvParam: PVOID, fWinIni: UINT) => BOOL;
-	TabbedTextOutA: (hdc: HDC, x: INT, y: INT, lpString: LPCSTR, chCount: INT, nTabPositions: INT, lpnTabStopPositions: INT, nTabOrigin: INT) => LONG;
-	TabbedTextOutW: (hdc: HDC, x: INT, y: INT, lpString: LPCWSTR, chCount: INT, nTabPositions: INT, lpnTabStopPositions: INT, nTabOrigin: INT) => LONG;
+	TabbedTextOutA: (
+		hdc: HDC,
+		x: INT,
+		y: INT,
+		lpString: LPCSTR,
+		chCount: INT,
+		nTabPositions: INT,
+		lpnTabStopPositions: INT,
+		nTabOrigin: INT
+	) => LONG;
+	TabbedTextOutW: (
+		hdc: HDC,
+		x: INT,
+		y: INT,
+		lpString: LPCWSTR,
+		chCount: INT,
+		nTabPositions: INT,
+		lpnTabStopPositions: INT,
+		nTabOrigin: INT
+	) => LONG;
 	TileWindows: (hwndParent: HWND, wHow: UINT, lpRect: RECT, cKids: UINT, lpKids: HWND) => WORD;
 	ToAscii: (uVirtKey: UINT, uScanCode: UINT, lpKeyState: BYTE, lpChar: LPWORD, uFlags: UINT) => INT;
 	ToAsciiEx: (uVirtKey: UINT, uScanCode: UINT, lpKeyState: BYTE, lpChar: LPWORD, uFlags: UINT, dwhkl: HKL) => INT;
 	TOUCH_COORD_TO_PIXEL: (l: any) => VOID;
 	ToUnicode: (wVirtKey: UINT, wScanCode: UINT, lpKeyState: BYTE, pwszBuff: LPWSTR, cchBuff: INT, wFlags: UINT) => INT;
-	ToUnicodeEx: (wVirtKey: UINT, wScanCode: UINT, lpKeyState: BYTE, pwszBuff: LPWSTR, cchBuff: INT, wFlags: UINT, dwhkl: HKL) => INT;
+	ToUnicodeEx: (
+		wVirtKey: UINT,
+		wScanCode: UINT,
+		lpKeyState: BYTE,
+		pwszBuff: LPWSTR,
+		cchBuff: INT,
+		wFlags: UINT,
+		dwhkl: HKL
+	) => INT;
 	TrackMouseEvent: (lpEventTrack: LPTRACKMOUSEEVENT) => BOOL;
 	TrackPopupMenu: (hMenu: HMENU, uFlags: UINT, x: INT, y: INT, nReserved: INT, hWnd: HWND, prcRect: RECT) => BOOL;
 	TrackPopupMenuEx: (hMenu: HMENU, uFlags: UINT, x: INT, y: INT, hwnd: HWND, lptpm: LPTPMPARAMS) => BOOL;
@@ -746,7 +1476,17 @@ export interface WinUserFns extends TsWin32FnsBasic {
 	UnregisterPowerSettingNotification: (Handle: HPOWERNOTIFY) => BOOL;
 	UnregisterSuspendResumeNotification: (Handle: HPOWERNOTIFY) => BOOL;
 	UnregisterTouchWindow: (hwnd: HWND) => BOOL;
-	UpdateLayeredWindow: (hWnd: HWND, hdcDst: HDC, pptDst: POINT, psize: SIZE, hdcSrc: HDC, pptSrc: POINT, crKey: COLORREF, pblend: BLENDFUNCTION, dwFlags: DWORD) => BOOL;
+	UpdateLayeredWindow: (
+		hWnd: HWND,
+		hdcDst: HDC,
+		pptDst: POINT,
+		psize: SIZE,
+		hdcSrc: HDC,
+		pptSrc: POINT,
+		crKey: COLORREF,
+		pblend: BLENDFUNCTION,
+		dwFlags: DWORD
+	) => BOOL;
 	UpdateWindow: (hWnd: HWND) => BOOL;
 	UserHandleGrantAccess: (hUserHandle: HANDLE, hJob: HANDLE, bGrant: BOOL) => BOOL;
 	ValidateRect: (hWnd: HWND, lpRect: RECT) => BOOL;

@@ -1,12 +1,12 @@
 {
 	"name": "win32-ffi",
 	"version": "0.0.6-alpha.5",
-	"description": "js/ts win32 api base on ffi",
-	"author": "Nawbc <deskbtm@outlook.com>",
+	"description": "Win32 api javascript binding",
+	"author": "Han <deskbtm@outlook.com>",
 	"homepage": "https://github.com/deskbtm/win32-ffi/",
-	"license": "MIT",
+	"license": "Apache-2.0",
 	"main": "dist/index.js",
-	"types": "./dist/index.d.ts",
+	"types": "dist/index.d.ts",
 	"files": [
 		"lib/**",
 		"dist/**"
@@ -41,7 +41,7 @@
 		"url": "https://github.com/deskbtm/win32-ffi/issues"
 	},
 	"devDependencies": {
-		"@types/ffi-napi": "^4.0.5",
+		"@types/ffi-napi": "^4.0.7",
 		"@types/jest": "^27.4.1",
 		"@types/ref-napi": "^3.0.4",
 		"@types/ref-union-di": "^1.0.3",
@@ -52,8 +52,6 @@
 		"eslint-plugin-import": "^2.23.4",
 		"jest": "^27.5.1",
 		"node-gyp": "^9.0.0",
-		"npm-run-all": "^4.1.5",
-		"request": "^2.88.2",
 		"request-promise": "^4.2.6",
 		"rimraf": "^3.0.2",
 		"ts-jest": "^27.1.4",

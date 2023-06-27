@@ -1,11 +1,7 @@
 import { Pointer } from '../common';
-import { PVOID } from "../user32";
+import { PVOID } from '../user32';
 
 export type DLL_DIRECTORY_COOKIE = PVOID;
-
-/**
- *			Proc
- */
 
 export type ENUMRESLANGPROCA = Pointer;
 export type ENUMRESLANGPROCW = Pointer;

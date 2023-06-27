@@ -1,10 +1,9 @@
-
 import { Pointer } from '../common';
 import { HANDLE, PVOID, VOID } from './win_nt';
 import { DWORD } from './win_def';
 
 /**
- *		Proc		
+ *	Proc
  */
 export type WNDPROC = Pointer;
 export type DLGPROC = Pointer;
@@ -24,10 +23,6 @@ export type WINSTAENUMPROCW = Pointer;
 export type MONITORENUMPROC = Pointer;
 export type SENDASYNCPROC = Pointer;
 
-/**
- *			
- */
-
 export type HGESTUREINFO = HANDLE;
 export type HTOUCHINPUT = HANDLE;
 export type HRAWINPUT = HANDLE;
@@ -42,7 +37,7 @@ export type MENUTEMPLATEA = VOID;
 export type MENUTEMPLATEW = VOID;
 
 /**
- *			enum
+ *	Enum
  */
 export type POINTER_INPUT_TYPE = DWORD;
 export type POINTER_FEEDBACK_MODE = DWORD;

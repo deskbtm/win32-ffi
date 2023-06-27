@@ -1,4 +1,4 @@
-import { PVOID } from "../user32/win_nt";
+import { PVOID } from '../user32/win_nt';
 
 export const DLL_DIRECTORY_COOKIE = PVOID;
 
