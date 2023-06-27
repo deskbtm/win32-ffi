@@ -1,19 +1,10 @@
-const { Win32ffi, L, CPP, StructType, ref, NULL } = require('../dist');
+const { Win32ffi, L, CPP, NULL } = require('../dist');
 
 const winFns = new Win32ffi().winFns();
 
 const { CreateWindowExW, GetMessageW, TranslateMessage, DispatchMessageW, GetModuleHandleW } = winFns;
 const sampleName = L('Sample Window Name\0');
 const sampleText = L('description\0');
-
-const tagWNDCLASSSTRUCT = {
-	lpszClassName: CPP.LPCWSTR,
-};
-
-const Struct = StructType(ref);
-
-const WNDCLASSSTRUCT = 'pointer';
-const StructWNDCLASSSTRUCT = Struct(tagWNDCLASSSTRUCT);
 
 const WS_OVERLAPPED = 0x00000000;
 const WS_CAPTION = 0x00c00000;
@@ -28,7 +19,7 @@ const WS_OVERLAPPEDWINDOW = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFR
 
 const hInst = GetModuleHandleW(NULL);
 
-const hWnd = CreateWindowExW(
+CreateWindowExW(
 	0,
 	sampleName,
 	sampleText,
